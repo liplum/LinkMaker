@@ -70,11 +70,75 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   查找类似 The Link and the Target are in two Different Drive Letters! 的本地化字符串。
+        /// </summary>
+        public static string DifferentFromDriveLetterException {
+            get {
+                return ResourceManager.GetString("DifferentFromDriveLetterException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This dragged by you is invaild! 的本地化字符串。
+        /// </summary>
+        public static string DraggedThingIsNotVaild {
+            get {
+                return ResourceManager.GetString("DraggedThingIsNotVaild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Error 的本地化字符串。
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Your extension of Link&apos;s name is different from Target.
+        ///Do you want to add  的本地化字符串。
+        /// </summary>
+        public static string ExtensionIsNotSame_1 {
+            get {
+                return ResourceManager.GetString("ExtensionIsNotSame_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  to Link&apos;s name at the end automatically or not. 的本地化字符串。
+        /// </summary>
+        public static string ExtensionIsNotSame_2 {
+            get {
+                return ResourceManager.GetString("ExtensionIsNotSame_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Hard Link Mode need both the Link and the Target are files! 的本地化字符串。
+        /// </summary>
+        public static string HardLinkIsInapplicableExcption {
+            get {
+                return ResourceManager.GetString("HardLinkIsInapplicableExcption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Hard link 的本地化字符串。
         /// </summary>
         public static string HardLinkRadioButton {
             get {
                 return ResourceManager.GetString("HardLinkRadioButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Junction Link Mode need both the Link and the Target are directory! 的本地化字符串。
+        /// </summary>
+        public static string JunctionLinkIsInapplicableExcption {
+            get {
+                return ResourceManager.GetString("JunctionLinkIsInapplicableExcption", resourceCulture);
             }
         }
         
@@ -97,11 +161,39 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   查找类似 The directory which own the link you want to make isn&apos;t existed! 的本地化字符串。
+        /// </summary>
+        public static string LinkDirectroyIsNotExistedException {
+            get {
+                return ResourceManager.GetString("LinkDirectroyIsNotExistedException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The Link has been existed! 的本地化字符串。
+        /// </summary>
+        public static string LinkHasBeenExistedException {
+            get {
+                return ResourceManager.GetString("LinkHasBeenExistedException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Select Link&apos;s mod: 的本地化字符串。
         /// </summary>
         public static string LinkModeLabel {
             get {
                 return ResourceManager.GetString("LinkModeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The Link&apos; name is invalid!
+        ///Please modify it. 的本地化字符串。
+        /// </summary>
+        public static string LinkNameIsInvalidException {
+            get {
+                return ResourceManager.GetString("LinkNameIsInvalidException", resourceCulture);
             }
         }
         
@@ -115,11 +207,29 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   查找类似 You need select the Link Mode! 的本地化字符串。
+        /// </summary>
+        public static string NotSelectLinkModeException {
+            get {
+                return ResourceManager.GetString("NotSelectLinkModeException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Select Folder 的本地化字符串。
         /// </summary>
         public static string SelectLinkDirectoryButton {
             get {
                 return ResourceManager.GetString("SelectLinkDirectoryButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Select a directory where you want to create the link 的本地化字符串。
+        /// </summary>
+        public static string SelectLinkDirectoryCaption {
+            get {
+                return ResourceManager.GetString("SelectLinkDirectoryCaption", resourceCulture);
             }
         }
         
@@ -133,6 +243,15 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Select a target you want to be linked 的本地化字符串。
+        /// </summary>
+        public static string SelectTargetPathCaption {
+            get {
+                return ResourceManager.GetString("SelectTargetPathCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Symbolic link 的本地化字符串。
         /// </summary>
         public static string SymbolicLinkRadioButton {
@@ -142,11 +261,29 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Neither the Target nor Link is file or directory! 的本地化字符串。
+        /// </summary>
+        public static string TargetOrLinkIsErrorExcption {
+            get {
+                return ResourceManager.GetString("TargetOrLinkIsErrorExcption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Type Target&apos;s path: 的本地化字符串。
         /// </summary>
         public static string TargetPathLabel {
             get {
                 return ResourceManager.GetString("TargetPathLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Tip 的本地化字符串。
+        /// </summary>
+        public static string Tip {
+            get {
+                return ResourceManager.GetString("Tip", resourceCulture);
             }
         }
     }

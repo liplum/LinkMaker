@@ -120,8 +120,30 @@
   <data name="CreateButton" xml:space="preserve">
     <value>Create</value>
   </data>
+  <data name="DifferentFromDriveLetterException" xml:space="preserve">
+    <value>The Link and the Target are in two Different Drive Letters!</value>
+  </data>
+  <data name="DraggedThingIsNotVaild" xml:space="preserve">
+    <value>This dragged by you is invaild!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ExtensionIsNotSame_1" xml:space="preserve">
+    <value>Your extension of Link's name is different from Target.
+Do you want to add </value>
+  </data>
+  <data name="ExtensionIsNotSame_2" xml:space="preserve">
+    <value> to Link's name at the end automatically or not.</value>
+  </data>
+  <data name="HardLinkIsInapplicableExcption" xml:space="preserve">
+    <value>Hard Link Mode need both the Link and the Target are files!</value>
+  </data>
   <data name="HardLinkRadioButton" xml:space="preserve">
     <value>Hard link</value>
+  </data>
+  <data name="JunctionLinkIsInapplicableExcption" xml:space="preserve">
+    <value>Junction Link Mode need both the Link and the Target are directory!</value>
   </data>
   <data name="JunctionLinkRadioButton" xml:space="preserve">
     <value>Junction link</value>
@@ -129,22 +151,47 @@
   <data name="LinkDirectoryLabel" xml:space="preserve">
     <value>Type Link's directory:</value>
   </data>
+  <data name="LinkDirectroyIsNotExistedException" xml:space="preserve">
+    <value>The directory which own the link you want to make isn't existed!</value>
+  </data>
+  <data name="LinkHasBeenExistedException" xml:space="preserve">
+    <value>The Link has been existed!</value>
+  </data>
   <data name="LinkModeLabel" xml:space="preserve">
     <value>Select Link's mod:</value>
+  </data>
+  <data name="LinkNameIsInvalidException" xml:space="preserve">
+    <value>The Link' name is invalid!
+Please modify it.</value>
   </data>
   <data name="LinkNameLabel" xml:space="preserve">
     <value>Type Link's name:</value>
   </data>
+  <data name="NotSelectLinkModeException" xml:space="preserve">
+    <value>You need select the Link Mode!</value>
+  </data>
   <data name="SelectLinkDirectoryButton" xml:space="preserve">
     <value>Select Folder</value>
+  </data>
+  <data name="SelectLinkDirectoryCaption" xml:space="preserve">
+    <value>Select a directory where you want to create the link</value>
   </data>
   <data name="SelectTargetPathButton" xml:space="preserve">
     <value>Select Target</value>
   </data>
+  <data name="SelectTargetPathCaption" xml:space="preserve">
+    <value>Select a target you want to be linked</value>
+  </data>
   <data name="SymbolicLinkRadioButton" xml:space="preserve">
     <value>Symbolic link</value>
   </data>
+  <data name="TargetOrLinkIsErrorExcption" xml:space="preserve">
+    <value>Neither the Target nor Link is file or directory!</value>
+  </data>
   <data name="TargetPathLabel" xml:space="preserve">
     <value>Type Target's path:</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>Tip</value>
   </data>
 </root>

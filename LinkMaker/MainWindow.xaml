@@ -7,65 +7,66 @@
         xmlns:prop="clr-namespace:LinkMaker.Properties"
         mc:Ignorable="d"
         Title="Link Maker"
-        MaxHeight="400"
-        MaxWidth="600">
-    <Viewbox Stretch="Uniform">
-        <Viewbox.Resources>
+        MaxHeight="250"
+        MaxWidth="800"
+        FontSize="20">
+    <Grid>
+        <Grid.Resources>
             <Style x:Key="StackPanelMargin" TargetType="StackPanel">
                 <Setter Property="Margin" Value="5"></Setter>
             </Style>
             <Style x:Key="GridMargin" TargetType="Grid">
                 <Setter Property="Margin" Value="10"></Setter>
             </Style>
-        </Viewbox.Resources>
+        </Grid.Resources>
         <StackPanel Orientation="Vertical">
-        <Grid Style="{StaticResource GridMargin}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Label Name="LinkModeLabel" Content="{x:Static prop:Resources.LinkModeLabel}" Grid.Row="0" Grid.Column="0"></Label>
-            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Style="{StaticResource StackPanelMargin}">
-                <StackPanel.Resources>
-                    <Style TargetType="RadioButton">
-                        <Setter Property="Margin" Value="1"></Setter>
-                    </Style>
-                </StackPanel.Resources>
-                <RadioButton GroupName="LinkMode" Name="HardLinkButton" Content="{x:Static prop:Resources.HardLinkRadioButton}"></RadioButton>
+            <Grid Style="{StaticResource GridMargin}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Name="LinkModeLabel" Content="{x:Static prop:Resources.LinkModeLabel}" Grid.Row="0" Grid.Column="0"></Label>
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Style="{StaticResource StackPanelMargin}">
+                    <StackPanel.Resources>
+                        <Style TargetType="RadioButton">
+                            <Setter Property="Margin" Value="1"></Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <RadioButton GroupName="LinkMode" Name="HardLinkButton" Content="{x:Static prop:Resources.HardLinkRadioButton}"></RadioButton>
                     <RadioButton GroupName="LinkMode" Name="SymbolicLinkButton" Content="{x:Static prop:Resources.SymbolicLinkRadioButton}"></RadioButton>
-                <RadioButton GroupName="LinkMode" Name="JunctionLinkButton" Content="{x:Static prop:Resources.JunctionLinkRadioButton}"></RadioButton>
-            </StackPanel>
-            <Label Name="LinkDirectoryLabel" Content="{x:Static prop:Resources.LinkDirectoryLabel}" Grid.Row="1" Grid.Column="0"></Label>
+                    <RadioButton GroupName="LinkMode" Name="JunctionLinkButton" Content="{x:Static prop:Resources.JunctionLinkRadioButton}"></RadioButton>
+                </StackPanel>
+                <Label Name="LinkDirectoryLabel" Content="{x:Static prop:Resources.LinkDirectoryLabel}" Grid.Row="1" Grid.Column="0"></Label>
 
-            <Grid Grid.Row="1" Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBox Name="LinkDirectoryName" Margin="5"></TextBox>
-                <Button Name="SelectLinkDirectory" Content="{x:Static prop:Resources.SelectLinkDirectoryButton}" Grid.Column="1"></Button>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="LinkDirectoryName" Margin="5" PreviewDragOver="LinkDirectoryName_PreviewDragOver" PreviewDrop="LinkDirectoryName_PreviewDrop"></TextBox>
+                    <Button Name="SelectLinkDirectory" Content="{x:Static prop:Resources.SelectLinkDirectoryButton}" Grid.Column="1" Click="SelectLinkDirectory_Click"></Button>
+                </Grid>
+
+                <Label Name="LinkNameLabel" Content="{x:Static prop:Resources.LinkNameLabel}" Grid.Row="2" Grid.Column="0"></Label>
+                <TextBox Name="LinkName" Margin="5" Grid.Row="2" Grid.Column="1"></TextBox>
+                <Label Name="TargetNameLabel" Content="{x:Static prop:Resources.TargetPathLabel}" Grid.Row="3" Grid.Column="0"></Label>
+
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="TargetPath" Margin="5" PreviewDrop="TargetPath_PreviewDrop" PreviewDragOver="TargetPath_PreviewDragOver"/>
+                    <!--<Button Name="SelectTargetPath" Content="{x:Static prop:Resources.SelectTargetPathButton}" Grid.Column="1" Click="SelectTargetPath_Click"/>-->
+                </Grid>
             </Grid>
-
-            <Label Name="LinkNameLabel" Content="{x:Static prop:Resources.LinkNameLabel}" Grid.Row="2" Grid.Column="0"></Label>
-            <TextBox Name="LinkName" Margin="5" Grid.Row="2" Grid.Column="1"></TextBox>
-            <Label Name="TargetNameLabel" Content="{x:Static prop:Resources.TargetPathLabel}" Grid.Row="3" Grid.Column="0"></Label>
-
-            <Grid Grid.Row="3" Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBox Name="TargetPath" Margin="5"/>
-                    <Button Name="SelectTargetPath" Content="{x:Static prop:Resources.SelectTargetPathButton}" Grid.Column="1"/>
-            </Grid>
-        </Grid>
-            <Button x:Name="Create" Content="{x:Static prop:Resources.CreateButton}" Margin="5" MaxWidth="100"></Button>
+            <Button x:Name="Create" Content="{x:Static prop:Resources.CreateButton}" Margin="5" MaxWidth="100" Click="Create_Click"></Button>
         </StackPanel>
-    </Viewbox>
+    </Grid>
 </Window>

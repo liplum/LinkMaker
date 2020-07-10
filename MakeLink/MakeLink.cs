@@ -1,4 +1,4 @@
-﻿using MakeLinkLib;
+﻿using System.IO;
 
 namespace MakeLink
 {
@@ -6,11 +6,11 @@ namespace MakeLink
     {
         static void Main(string[] args)
         {
-            string link = @"E:\E盘链接",
-                target = @"G:\G盘源文件";
-
-            var cmd = new MkLink(MkLinkEumn.LinkMode.D,link,target);
-            cmd.Run();
+            var path = @"G:\Test\需要被链接的文件夹";
+            var ifFile = new FileInfo(path);
+            System.Console.WriteLine(ifFile.Exists);
+            var ifDir = new DirectoryInfo(path);
+            System.Console.WriteLine(ifDir.Exists);
         }
     }
 }

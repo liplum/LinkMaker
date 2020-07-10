@@ -8,7 +8,9 @@ namespace MakeLinkLib
         public enum LinkMode
         {
             [Parameter(@"/d")]
-            D,
+            Ddir,
+            [Parameter("")]
+            Dfile,
             [Parameter(@"/h")]
             H,
             [Parameter(@"/j")]
