@@ -33,7 +33,7 @@ namespace LinkMaker
         /// <exception cref="DifferentFromDriveLetterException"></exception>
         /// <exception cref="HardLinkIsInapplicableExcption"></exception>
         /// <exception cref="JunctionLinkIsInapplicableExcption"></exception>
-        /// <exception cref="TargetOrLinkIsErrorExcption"></exception>
+        /// <exception cref="TargetNeitherFileNorDirectoryExcption"></exception>
         /// <exception cref="NotSelectLinkModeException"></exception>
         /// <exception cref="LinkDirectroyIsNotExistedException"></exception>
         /// <exception cref="LinkNameIsInvalidException"></exception>
@@ -65,6 +65,7 @@ namespace LinkMaker
                     //当选择Hard Link时，此时需要两者都是文件
                     if (HardLinkButton.IsChecked == true)
                     {
+                        //硬链接要求目标文件存在
                         if (ifTargetFile.Exists)
                         {
                             if (GetDriveLetter(ifTargetFile.FullName) == GetDriveLetter(ifLinkFile.FullName))
@@ -95,6 +96,7 @@ namespace LinkMaker
                     //当选择Junction Link时
                     else if (JunctionLinkButton.IsChecked == true)
                     {
+#error 需要修复：需要考虑目标位置尚未存在的问题
                         //判断目标地址是否是文件夹，此时需要两者都是目录
                         if (ifTargetDir.Exists)
                         {
@@ -120,7 +122,8 @@ namespace LinkMaker
                         }
                         else
                         {
-                            throw new TargetOrLinkIsErrorExcption(TargetPath.Text);
+#error 需要修复：需要考虑目标位置尚未存在的问题
+                            throw new TargetNeitherFileNorDirectoryExcption(TargetPath.Text);
                         }
                     }
                     //此时没有选择Mode
@@ -219,13 +222,13 @@ namespace LinkMaker
             }
         }
 
-        public class TargetOrLinkIsErrorExcption : Exception
+        public class TargetNeitherFileNorDirectoryExcption : Exception
         {
-            public TargetOrLinkIsErrorExcption()
+            public TargetNeitherFileNorDirectoryExcption()
             {
 
             }
-            public TargetOrLinkIsErrorExcption(string message) : base(message)
+            public TargetNeitherFileNorDirectoryExcption(string message) : base(message)
             {
 
             }

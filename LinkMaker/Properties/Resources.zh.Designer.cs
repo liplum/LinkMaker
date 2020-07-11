@@ -22,14 +22,14 @@ namespace LinkMaker.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    public class zh {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal zh() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace LinkMaker.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LinkMaker.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LinkMaker.Properties.zh", typeof(zh).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Create 的本地化字符串。
+        ///   查找类似 创建 的本地化字符串。
         /// </summary>
         public static string CreateButton {
             get {
@@ -70,7 +70,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 The Link and the Target are in two Different Drive Letters! 的本地化字符串。
+        ///   查找类似 链接和目标位置的磁盘驱动器符号不同！ 的本地化字符串。
         /// </summary>
         public static string DifferentFromDriveLetterException {
             get {
@@ -79,7 +79,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 This dragged by you is invaild! 的本地化字符串。
+        ///   查找类似 你拖拽的内容不合法！ 的本地化字符串。
         /// </summary>
         public static string DraggedThingIsNotVaild {
             get {
@@ -88,7 +88,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Error 的本地化字符串。
+        ///   查找类似 错误 的本地化字符串。
         /// </summary>
         public static string Error {
             get {
@@ -97,8 +97,8 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Your extension of Link&apos;s name is different from Target.
-        ///Do you want to add  的本地化字符串。
+        ///   查找类似 你链接的拓展名与目标位置的拓展名不同，
+        ///你想要自动为其添加 的本地化字符串。
         /// </summary>
         public static string ExtensionIsNotSame_1 {
             get {
@@ -107,7 +107,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似  to Link&apos;s name at the end automatically or not. 的本地化字符串。
+        ///   查找类似 在末尾吗？ 的本地化字符串。
         /// </summary>
         public static string ExtensionIsNotSame_2 {
             get {
@@ -116,7 +116,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Hard Link Mode need both the Link and the Target are files! 的本地化字符串。
+        ///   查找类似 硬链接模式需要链接和目标位置都是文件！ 的本地化字符串。
         /// </summary>
         public static string HardLinkIsInapplicableExcption {
             get {
@@ -125,7 +125,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Hard link 的本地化字符串。
+        ///   查找类似 硬链接 的本地化字符串。
         /// </summary>
         public static string HardLinkRadioButton {
             get {
@@ -134,7 +134,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Junction Link Mode need both the Link and the Target are directory! 的本地化字符串。
+        ///   查找类似 联接模式需要链接和目标位置都是文件夹！ 的本地化字符串。
         /// </summary>
         public static string JunctionLinkIsInapplicableExcption {
             get {
@@ -143,7 +143,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Junction link 的本地化字符串。
+        ///   查找类似 联接 的本地化字符串。
         /// </summary>
         public static string JunctionLinkRadioButton {
             get {
@@ -152,7 +152,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Type Link&apos;s directory: 的本地化字符串。
+        ///   查找类似 要创建的链接的目录： 的本地化字符串。
         /// </summary>
         public static string LinkDirectoryLabel {
             get {
@@ -161,7 +161,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 The directory which own the link you want to make isn&apos;t existed! 的本地化字符串。
+        ///   查找类似 你想要创建的链接所在的目录不存在！ 的本地化字符串。
         /// </summary>
         public static string LinkDirectroyIsNotExistedException {
             get {
@@ -170,7 +170,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 The Link has been existed! 的本地化字符串。
+        ///   查找类似 这个链接已经存在了！ 的本地化字符串。
         /// </summary>
         public static string LinkHasBeenExistedException {
             get {
@@ -179,7 +179,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Select Link&apos;s mod: 的本地化字符串。
+        ///   查找类似 链接模式： 的本地化字符串。
         /// </summary>
         public static string LinkModeLabel {
             get {
@@ -188,8 +188,8 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 The Link&apos; name is invalid!
-        ///Please modify it. 的本地化字符串。
+        ///   查找类似 链接名称不合法！
+        ///请修改后再试。 的本地化字符串。
         /// </summary>
         public static string LinkNameIsInvalidException {
             get {
@@ -198,7 +198,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Type Link&apos;s name: 的本地化字符串。
+        ///   查找类似 链接名称： 的本地化字符串。
         /// </summary>
         public static string LinkNameLabel {
             get {
@@ -207,7 +207,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 You need select the Link Mode! 的本地化字符串。
+        ///   查找类似 你需要先选择链接模式！ 的本地化字符串。
         /// </summary>
         public static string NotSelectLinkModeException {
             get {
@@ -216,7 +216,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Select Folder 的本地化字符串。
+        ///   查找类似 选择文件夹 的本地化字符串。
         /// </summary>
         public static string SelectLinkDirectoryButton {
             get {
@@ -225,7 +225,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Select a directory where you want to create the link 的本地化字符串。
+        ///   查找类似 选择你想要创建的链接所在的目录 的本地化字符串。
         /// </summary>
         public static string SelectLinkDirectoryCaption {
             get {
@@ -234,7 +234,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Select Target 的本地化字符串。
+        ///   查找类似 选择目标位置 的本地化字符串。
         /// </summary>
         public static string SelectTargetPathButton {
             get {
@@ -243,7 +243,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Select a target you want to be linked 的本地化字符串。
+        ///   查找类似 选择一个你想要被链接的目标位置 的本地化字符串。
         /// </summary>
         public static string SelectTargetPathCaption {
             get {
@@ -252,7 +252,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Symbolic link 的本地化字符串。
+        ///   查找类似 符号链接 的本地化字符串。
         /// </summary>
         public static string SymbolicLinkRadioButton {
             get {
@@ -261,7 +261,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 The Target is neither file nor directory! 的本地化字符串。
+        ///   查找类似 目标位置既不是文件，也不是文件夹 的本地化字符串。
         /// </summary>
         public static string TargetNeitherFileNorDirectoryExcption {
             get {
@@ -270,7 +270,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Type Target&apos;s path: 的本地化字符串。
+        ///   查找类似 目标位置： 的本地化字符串。
         /// </summary>
         public static string TargetPathLabel {
             get {
@@ -279,7 +279,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Tip 的本地化字符串。
+        ///   查找类似 提示 的本地化字符串。
         /// </summary>
         public static string Tip {
             get {

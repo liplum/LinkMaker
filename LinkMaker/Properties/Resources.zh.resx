@@ -118,80 +118,80 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CreateButton" xml:space="preserve">
-    <value>Create</value>
+    <value>创建</value>
   </data>
   <data name="DifferentFromDriveLetterException" xml:space="preserve">
-    <value>The Link and the Target are in two Different Drive Letters!</value>
+    <value>链接和目标位置的磁盘驱动器符号不同！</value>
   </data>
   <data name="DraggedThingIsNotVaild" xml:space="preserve">
-    <value>This dragged by you is invaild!</value>
+    <value>你拖拽的内容不合法！</value>
   </data>
   <data name="Error" xml:space="preserve">
-    <value>Error</value>
+    <value>错误</value>
   </data>
   <data name="ExtensionIsNotSame_1" xml:space="preserve">
-    <value>Your extension of Link's name is different from Target.
-Do you want to add </value>
+    <value>你链接的拓展名与目标位置的拓展名不同，
+你想要自动为其添加</value>
   </data>
   <data name="ExtensionIsNotSame_2" xml:space="preserve">
-    <value> to Link's name at the end automatically or not.</value>
+    <value>在末尾吗？</value>
   </data>
   <data name="HardLinkIsInapplicableExcption" xml:space="preserve">
-    <value>Hard Link Mode need both the Link and the Target are files!</value>
+    <value>硬链接模式需要链接和目标位置都是文件！</value>
   </data>
   <data name="HardLinkRadioButton" xml:space="preserve">
-    <value>Hard link</value>
+    <value>硬链接</value>
   </data>
   <data name="JunctionLinkIsInapplicableExcption" xml:space="preserve">
-    <value>Junction Link Mode need both the Link and the Target are directory!</value>
+    <value>联接模式需要链接和目标位置都是文件夹！</value>
   </data>
   <data name="JunctionLinkRadioButton" xml:space="preserve">
-    <value>Junction link</value>
+    <value>联接</value>
   </data>
   <data name="LinkDirectoryLabel" xml:space="preserve">
-    <value>Type Link's directory:</value>
+    <value>链接的目录：</value>
   </data>
   <data name="LinkDirectroyIsNotExistedException" xml:space="preserve">
-    <value>The directory which own the link you want to make isn't existed!</value>
+    <value>你想要创建的链接所在的目录不存在！</value>
   </data>
   <data name="LinkHasBeenExistedException" xml:space="preserve">
-    <value>The Link has been existed!</value>
+    <value>这个链接已经存在了！</value>
   </data>
   <data name="LinkModeLabel" xml:space="preserve">
-    <value>Select Link's mod:</value>
+    <value>链接模式：</value>
   </data>
   <data name="LinkNameIsInvalidException" xml:space="preserve">
-    <value>The Link' name is invalid!
-Please modify it.</value>
+    <value>链接名称不合法！
+请修改后再试。</value>
   </data>
   <data name="LinkNameLabel" xml:space="preserve">
-    <value>Type Link's name:</value>
+    <value>链接名称：</value>
   </data>
   <data name="NotSelectLinkModeException" xml:space="preserve">
-    <value>You need select the Link Mode!</value>
+    <value>你需要先选择链接模式！</value>
   </data>
   <data name="SelectLinkDirectoryButton" xml:space="preserve">
-    <value>Select Folder</value>
+    <value>选择文件夹</value>
   </data>
   <data name="SelectLinkDirectoryCaption" xml:space="preserve">
-    <value>Select a directory where you want to create the link</value>
+    <value>选择你想要创建的链接所在的目录</value>
   </data>
   <data name="SelectTargetPathButton" xml:space="preserve">
-    <value>Select Target</value>
+    <value>选择目标位置</value>
   </data>
   <data name="SelectTargetPathCaption" xml:space="preserve">
-    <value>Select a target you want to be linked</value>
+    <value>选择一个你想要被链接的目标位置</value>
   </data>
   <data name="SymbolicLinkRadioButton" xml:space="preserve">
-    <value>Symbolic link</value>
+    <value>符号链接</value>
   </data>
   <data name="TargetNeitherFileNorDirectoryExcption" xml:space="preserve">
-    <value>The Target is neither file nor directory!</value>
+    <value>目标位置既不是文件，也不是文件夹</value>
   </data>
   <data name="TargetPathLabel" xml:space="preserve">
-    <value>Type Target's path:</value>
+    <value>目标位置：</value>
   </data>
   <data name="Tip" xml:space="preserve">
-    <value>Tip</value>
+    <value>提示</value>
   </data>
 </root>

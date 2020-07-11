@@ -46,9 +46,9 @@ namespace LinkMaker
             {
                 MessageBox.Show(Properties.Resources.JunctionLinkIsInapplicableExcption, Properties.Resources.Error);
             }
-            catch (TargetOrLinkIsErrorExcption)
+            catch (TargetNeitherFileNorDirectoryExcption)
             {
-                MessageBox.Show(Properties.Resources.TargetOrLinkIsErrorExcption, Properties.Resources.Error);
+                MessageBox.Show(Properties.Resources.TargetNeitherFileNorDirectoryExcption, Properties.Resources.Error);
             }
             catch (NotSelectLinkModeException)
             {
