@@ -123,6 +123,12 @@
   <data name="DifferentFromDriveLetterException" xml:space="preserve">
     <value>链接和目标位置的磁盘驱动器符号不同！</value>
   </data>
+  <data name="DirectorySymbolicLinkIsInapplicableException" xml:space="preserve">
+    <value>目标位置已经是一个文件夹了，并非是文件！</value>
+  </data>
+  <data name="DirectorySymbolicLinkRadioButton" xml:space="preserve">
+    <value>目录符号链接</value>
+  </data>
   <data name="DraggedThingIsNotVaild" xml:space="preserve">
     <value>你拖拽的内容不合法！</value>
   </data>
@@ -136,13 +142,19 @@
   <data name="ExtensionIsNotSame_2" xml:space="preserve">
     <value>在末尾吗？</value>
   </data>
-  <data name="HardLinkIsInapplicableExcption" xml:space="preserve">
-    <value>硬链接模式需要链接和目标位置都是文件！</value>
+  <data name="FileSymbolicLinkIsInapplicableException" xml:space="preserve">
+    <value>目标位置已经是一个文件了，并非是文件夹！</value>
+  </data>
+  <data name="FileSymbolicLinkRadioButton" xml:space="preserve">
+    <value>文件符号链接</value>
+  </data>
+  <data name="HardLinkIsInapplicableException" xml:space="preserve">
+    <value>硬链接模式需要目标位置都是文件！</value>
   </data>
   <data name="HardLinkRadioButton" xml:space="preserve">
     <value>硬链接</value>
   </data>
-  <data name="JunctionLinkIsInapplicableExcption" xml:space="preserve">
+  <data name="JunctionLinkIsInapplicableException" xml:space="preserve">
     <value>联接模式需要链接和目标位置都是文件夹！</value>
   </data>
   <data name="JunctionLinkRadioButton" xml:space="preserve">
@@ -151,11 +163,15 @@
   <data name="LinkDirectoryLabel" xml:space="preserve">
     <value>链接的目录：</value>
   </data>
+  <data name="LinkDirectoryNameIsInvalidException" xml:space="preserve">
+    <value>链接所在目录的名称不合法！
+请修改后再试。</value>
+  </data>
   <data name="LinkDirectroyIsNotExistedException" xml:space="preserve">
     <value>你想要创建的链接所在的目录不存在！</value>
   </data>
   <data name="LinkHasBeenExistedException" xml:space="preserve">
-    <value>这个链接已经存在了！</value>
+    <value>这个链接已经存在或已被占用了！</value>
   </data>
   <data name="LinkModeLabel" xml:space="preserve">
     <value>链接模式：</value>
@@ -182,10 +198,10 @@
   <data name="SelectTargetPathCaption" xml:space="preserve">
     <value>选择一个你想要被链接的目标位置</value>
   </data>
-  <data name="SymbolicLinkRadioButton" xml:space="preserve">
-    <value>符号链接</value>
+  <data name="TargetHasNotExistedYet" xml:space="preserve">
+    <value>目标位置尚未创建。</value>
   </data>
-  <data name="TargetNeitherFileNorDirectoryExcption" xml:space="preserve">
+  <data name="TargetNeitherFileNorDirectoryException" xml:space="preserve">
     <value>目标位置既不是文件，也不是文件夹</value>
   </data>
   <data name="TargetPathLabel" xml:space="preserve">
@@ -193,5 +209,11 @@
   </data>
   <data name="Tip" xml:space="preserve">
     <value>提示</value>
+  </data>
+  <data name="WhetherContinue" xml:space="preserve">
+    <value>是否继续？</value>
+  </data>
+  <data name="WhetherMkDirTarget" xml:space="preserve">
+    <value>是否要自动创建目标文件夹？</value>
   </data>
 </root>

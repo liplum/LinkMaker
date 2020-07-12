@@ -123,6 +123,12 @@
   <data name="DifferentFromDriveLetterException" xml:space="preserve">
     <value>The Link and the Target are in two Different Drive Letters!</value>
   </data>
+  <data name="DirectorySymbolicLinkIsInapplicableException" xml:space="preserve">
+    <value>Target has already been a file but a directory!</value>
+  </data>
+  <data name="DirectorySymbolicLinkRadioButton" xml:space="preserve">
+    <value>Dir SymLink</value>
+  </data>
   <data name="DraggedThingIsNotVaild" xml:space="preserve">
     <value>This dragged by you is invaild!</value>
   </data>
@@ -136,36 +142,46 @@ Do you want to add </value>
   <data name="ExtensionIsNotSame_2" xml:space="preserve">
     <value> to Link's name at the end automatically or not.</value>
   </data>
-  <data name="HardLinkIsInapplicableExcption" xml:space="preserve">
-    <value>Hard Link Mode need both the Link and the Target are files!</value>
+  <data name="FileSymbolicLinkIsInapplicableException" xml:space="preserve">
+    <value>Target has already been a directory but a file!</value>
+  </data>
+  <data name="FileSymbolicLinkRadioButton" xml:space="preserve">
+    <value>File SymLink</value>
+  </data>
+  <data name="HardLinkIsInapplicableException" xml:space="preserve">
+    <value>Hard Link Mode need the Target was file!</value>
   </data>
   <data name="HardLinkRadioButton" xml:space="preserve">
-    <value>Hard link</value>
+    <value>Hard Link</value>
   </data>
-  <data name="JunctionLinkIsInapplicableExcption" xml:space="preserve">
+  <data name="JunctionLinkIsInapplicableException" xml:space="preserve">
     <value>Junction Link Mode need both the Link and the Target are directory!</value>
   </data>
   <data name="JunctionLinkRadioButton" xml:space="preserve">
-    <value>Junction link</value>
+    <value>Junction Link</value>
   </data>
   <data name="LinkDirectoryLabel" xml:space="preserve">
-    <value>Type Link's directory:</value>
+    <value>Link's Directory:</value>
+  </data>
+  <data name="LinkDirectoryNameIsInvalidException" xml:space="preserve">
+    <value>The Link' directory is invalid!
+Please modify it.</value>
   </data>
   <data name="LinkDirectroyIsNotExistedException" xml:space="preserve">
     <value>The directory which own the link you want to make isn't existed!</value>
   </data>
   <data name="LinkHasBeenExistedException" xml:space="preserve">
-    <value>The Link has been existed!</value>
+    <value>The Link has been existed or occupied!</value>
   </data>
   <data name="LinkModeLabel" xml:space="preserve">
-    <value>Select Link's mod:</value>
+    <value>Link's Mod:</value>
   </data>
   <data name="LinkNameIsInvalidException" xml:space="preserve">
     <value>The Link' name is invalid!
 Please modify it.</value>
   </data>
   <data name="LinkNameLabel" xml:space="preserve">
-    <value>Type Link's name:</value>
+    <value>Link's Name:</value>
   </data>
   <data name="NotSelectLinkModeException" xml:space="preserve">
     <value>You need select the Link Mode!</value>
@@ -182,16 +198,22 @@ Please modify it.</value>
   <data name="SelectTargetPathCaption" xml:space="preserve">
     <value>Select a target you want to be linked</value>
   </data>
-  <data name="SymbolicLinkRadioButton" xml:space="preserve">
-    <value>Symbolic link</value>
+  <data name="TargetHasNotExistedYet" xml:space="preserve">
+    <value>The Target hasn't existed yet.</value>
   </data>
-  <data name="TargetNeitherFileNorDirectoryExcption" xml:space="preserve">
+  <data name="TargetNeitherFileNorDirectoryException" xml:space="preserve">
     <value>The Target is neither file nor directory!</value>
   </data>
   <data name="TargetPathLabel" xml:space="preserve">
-    <value>Type Target's path:</value>
+    <value>Target's Path:</value>
   </data>
   <data name="Tip" xml:space="preserve">
     <value>Tip</value>
+  </data>
+  <data name="WhetherContinue" xml:space="preserve">
+    <value>Do you want to continue?</value>
+  </data>
+  <data name="WhetherMkDirTarget" xml:space="preserve">
+    <value>Do you want to craete the Target directory automatically?</value>
   </data>
 </root>

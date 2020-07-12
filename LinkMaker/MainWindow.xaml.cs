@@ -38,17 +38,13 @@ namespace LinkMaker
             {
                 MessageBox.Show(Properties.Resources.DifferentFromDriveLetterException, Properties.Resources.Error);
             }
-            catch (HardLinkIsInapplicableExcption)
+            catch (HardLinkIsInapplicableException)
             {
-                MessageBox.Show(Properties.Resources.HardLinkIsInapplicableExcption, Properties.Resources.Error);
+                MessageBox.Show(Properties.Resources.HardLinkIsInapplicableException, Properties.Resources.Error);
             }
-            catch (JunctionLinkIsInapplicableExcption)
+            catch (TargetNeitherFileNorDirectoryException)
             {
-                MessageBox.Show(Properties.Resources.JunctionLinkIsInapplicableExcption, Properties.Resources.Error);
-            }
-            catch (TargetNeitherFileNorDirectoryExcption)
-            {
-                MessageBox.Show(Properties.Resources.TargetNeitherFileNorDirectoryExcption, Properties.Resources.Error);
+                MessageBox.Show(Properties.Resources.TargetNeitherFileNorDirectoryException, Properties.Resources.Error);
             }
             catch (NotSelectLinkModeException)
             {
@@ -61,6 +57,23 @@ namespace LinkMaker
             catch (LinkNameIsInvalidException)
             {
                 MessageBox.Show(Properties.Resources.LinkNameIsInvalidException, Properties.Resources.Error);
+            }
+            catch (CancelOperationException)
+            {
+                ;
+            }
+            catch (FileSymbolicLinkIsInapplicableException)
+            {
+                MessageBox.Show(Properties.Resources.FileSymbolicLinkIsInapplicableException, Properties.Resources.Error);
+            }
+            catch (DirectorySymbolicLinkIsInapplicableException)
+            {
+                MessageBox.Show(Properties.Resources.DirectorySymbolicLinkIsInapplicableException, Properties.Resources.Error);
+            }
+            catch (LinkDirectoryNameIsInvalidException)
+            {
+                MessageBox.Show(Properties.Resources.LinkDirectoryNameIsInvalidException, Properties.Resources.Error);
+
             }
         }
 

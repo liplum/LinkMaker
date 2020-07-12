@@ -39,7 +39,8 @@
                         </Style>
                     </StackPanel.Resources>
                     <RadioButton GroupName="LinkMode" Name="HardLinkButton" Content="{x:Static prop:Resources.HardLinkRadioButton}"></RadioButton>
-                    <RadioButton GroupName="LinkMode" Name="SymbolicLinkButton" Content="{x:Static prop:Resources.SymbolicLinkRadioButton}"></RadioButton>
+                    <RadioButton GroupName="LinkMode" Name="DirectorySymbolicLinkButton" Content="{x:Static prop:Resources.DirectorySymbolicLinkRadioButton}"></RadioButton>
+                    <RadioButton GroupName="LinkMode" Name="FileSymbolicLinkButton" Content="{x:Static prop:Resources.FileSymbolicLinkRadioButton}"></RadioButton>
                     <RadioButton GroupName="LinkMode" Name="JunctionLinkButton" Content="{x:Static prop:Resources.JunctionLinkRadioButton}"></RadioButton>
                 </StackPanel>
                 <Label Name="LinkDirectoryLabel" Content="{x:Static prop:Resources.LinkDirectoryLabel}" Grid.Row="1" Grid.Column="0"></Label>

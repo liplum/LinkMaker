@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Threading;
+using System.Windows;
 
 namespace LinkMaker
 {
@@ -9,7 +11,8 @@ namespace LinkMaker
     {
         public App()
         {
-
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
         }
     }
 }
