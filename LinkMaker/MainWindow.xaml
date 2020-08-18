@@ -38,10 +38,10 @@
                             <Setter Property="Margin" Value="1"></Setter>
                         </Style>
                     </StackPanel.Resources>
-                    <RadioButton GroupName="LinkMode" Name="HardLinkButton" Content="{x:Static prop:Resources.HardLinkRadioButton}"></RadioButton>
-                    <RadioButton GroupName="LinkMode" Name="DirectorySymbolicLinkButton" Content="{x:Static prop:Resources.DirectorySymbolicLinkRadioButton}"></RadioButton>
-                    <RadioButton GroupName="LinkMode" Name="FileSymbolicLinkButton" Content="{x:Static prop:Resources.FileSymbolicLinkRadioButton}"></RadioButton>
-                    <RadioButton GroupName="LinkMode" Name="JunctionLinkButton" Content="{x:Static prop:Resources.JunctionLinkRadioButton}"></RadioButton>
+                    <RadioButton GroupName="LinkMode" Name="HardLinkButton" Content="{x:Static prop:Resources.HardLinkRadioButton}" Checked="HardLinkButton_Checked"></RadioButton>
+                    <RadioButton GroupName="LinkMode" Name="DirectorySymbolicLinkButton" Content="{x:Static prop:Resources.DirectorySymbolicLinkRadioButton}" Checked="DirectorySymbolicLinkButton_Checked"></RadioButton>
+                    <RadioButton GroupName="LinkMode" Name="FileSymbolicLinkButton" Content="{x:Static prop:Resources.FileSymbolicLinkRadioButton}" Checked="FileSymbolicLinkButton_Checked"></RadioButton>
+                    <RadioButton GroupName="LinkMode" Name="JunctionLinkButton" Content="{x:Static prop:Resources.JunctionLinkRadioButton}" Checked="JunctionLinkButton_Checked"></RadioButton>
                 </StackPanel>
                 <Label Name="LinkDirectoryLabel" Content="{x:Static prop:Resources.LinkDirectoryLabel}" Grid.Row="1" Grid.Column="0"></Label>
 
@@ -64,7 +64,7 @@
                         <ColumnDefinition Width="auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <TextBox Name="TargetPath" Margin="5" PreviewDrop="TargetPath_PreviewDrop" PreviewDragOver="TargetPath_PreviewDragOver"/>
-                    <!--<Button Name="SelectTargetPath" Content="{x:Static prop:Resources.SelectTargetPathButton}" Grid.Column="1" Click="SelectTargetPath_Click"/>-->
+                    <Button Name="SelectTargetPath" Content="{x:Static prop:Resources.SelectTargetPathButton}" IsEnabled="False" Grid.Column="1"/>
                 </Grid>
             </Grid>
             <Button x:Name="Create" Content="{x:Static prop:Resources.CreateButton}" Margin="5" MaxWidth="100" Click="Create_Click"></Button>

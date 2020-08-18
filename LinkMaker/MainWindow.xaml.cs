@@ -19,9 +19,14 @@ namespace LinkMaker
             SelectLinkDirectoryFuc();
         }
 
-        private void SelectTargetPath_Click(object sender, RoutedEventArgs e)
+        private void SelectTargetPath_Click_File(object sender, RoutedEventArgs e)
         {
-            SelectTargetFuc();
+            SelectTargetFileFuc();
+        }
+
+        private void SelectTargetPath_Click_Folder(object sender, RoutedEventArgs e)
+        {
+            SelectTargetFolderFuc();
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -132,6 +137,26 @@ namespace LinkMaker
             {
                 textbox.Text = array.GetValue(0).ToString();
             }
+        }
+
+        private void DirectorySymbolicLinkButton_Checked(object sender, RoutedEventArgs e)
+        {
+            CanSelectDircetory();
+        }
+
+        private void FileSymbolicLinkButton_Checked(object sender, RoutedEventArgs e)
+        {
+            CanSelectFile();
+        }
+
+        private void JunctionLinkButton_Checked(object sender, RoutedEventArgs e)
+        {
+            CanSelectDircetory();
+        }
+
+        private void HardLinkButton_Checked(object sender, RoutedEventArgs e)
+        {
+            CanSelectFile();
         }
     }
 }

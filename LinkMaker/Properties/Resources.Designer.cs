@@ -116,20 +116,11 @@ namespace LinkMaker.Properties {
         
         /// <summary>
         ///   查找类似 Your extension of Link&apos;s name is different from Target.
-        ///Do you want to add  的本地化字符串。
+        ///Do you want to add {content} to Link&apos;s name at the end automatically or not. 的本地化字符串。
         /// </summary>
-        public static string ExtensionIsNotSame_1 {
+        public static string ExtensionIsNotSame {
             get {
-                return ResourceManager.GetString("ExtensionIsNotSame_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似  to Link&apos;s name at the end automatically or not. 的本地化字符串。
-        /// </summary>
-        public static string ExtensionIsNotSame_2 {
-            get {
-                return ResourceManager.GetString("ExtensionIsNotSame_2", resourceCulture);
+                return ResourceManager.GetString("ExtensionIsNotSame", resourceCulture);
             }
         }
         
@@ -280,20 +271,56 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Select File 的本地化字符串。
+        /// </summary>
+        public static string SelectLinkFileButton {
+            get {
+                return ResourceManager.GetString("SelectLinkFileButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Select File 的本地化字符串。
+        /// </summary>
+        public static string SelectTargetFileButton {
+            get {
+                return ResourceManager.GetString("SelectTargetFileButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Select a file you want to be linked 的本地化字符串。
+        /// </summary>
+        public static string SelectTargetFileCaption {
+            get {
+                return ResourceManager.GetString("SelectTargetFileCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Select Folder 的本地化字符串。
+        /// </summary>
+        public static string SelectTargetFolderButton {
+            get {
+                return ResourceManager.GetString("SelectTargetFolderButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Select a folder you want to be linked 的本地化字符串。
+        /// </summary>
+        public static string SelectTargetFolderCaption {
+            get {
+                return ResourceManager.GetString("SelectTargetFolderCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Select Target 的本地化字符串。
         /// </summary>
         public static string SelectTargetPathButton {
             get {
                 return ResourceManager.GetString("SelectTargetPathButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Select a target you want to be linked 的本地化字符串。
-        /// </summary>
-        public static string SelectTargetPathCaption {
-            get {
-                return ResourceManager.GetString("SelectTargetPathCaption", resourceCulture);
             }
         }
         

@@ -135,12 +135,9 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="ExtensionIsNotSame_1" xml:space="preserve">
+  <data name="ExtensionIsNotSame" xml:space="preserve">
     <value>Your extension of Link's name is different from Target.
-Do you want to add </value>
-  </data>
-  <data name="ExtensionIsNotSame_2" xml:space="preserve">
-    <value> to Link's name at the end automatically or not.</value>
+Do you want to add {content} to Link's name at the end automatically or not.</value>
   </data>
   <data name="FileSymbolicLinkIsInapplicableException" xml:space="preserve">
     <value>Target has already been a directory but a file!</value>
@@ -192,11 +189,23 @@ Please modify it.</value>
   <data name="SelectLinkDirectoryCaption" xml:space="preserve">
     <value>Select a directory where you want to create the link</value>
   </data>
+  <data name="SelectLinkFileButton" xml:space="preserve">
+    <value>Select File</value>
+  </data>
+  <data name="SelectTargetFileButton" xml:space="preserve">
+    <value>Select File</value>
+  </data>
+  <data name="SelectTargetFileCaption" xml:space="preserve">
+    <value>Select a file you want to be linked</value>
+  </data>
+  <data name="SelectTargetFolderButton" xml:space="preserve">
+    <value>Select Folder</value>
+  </data>
+  <data name="SelectTargetFolderCaption" xml:space="preserve">
+    <value>Select a folder you want to be linked</value>
+  </data>
   <data name="SelectTargetPathButton" xml:space="preserve">
     <value>Select Target</value>
-  </data>
-  <data name="SelectTargetPathCaption" xml:space="preserve">
-    <value>Select a target you want to be linked</value>
   </data>
   <data name="TargetHasNotExistedYet" xml:space="preserve">
     <value>The Target hasn't existed yet.</value>

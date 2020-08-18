@@ -18,14 +18,43 @@ namespace LinkMaker
                 LinkDirectoryName.Text = linkDir.FullName;
             }
         }
-        void SelectTargetFuc()
+
+        void SelectTargetFileFuc()
         {
-            var target = SelectFile(Properties.Resources.SelectTargetPathCaption);
+            var target = SelectFile(Properties.Resources.SelectTargetFileCaption);
             if (target != null && target.Exists)
             {
                 TargetPath.Text = target.FullName;
             }
         }
+
+        void SelectTargetFolderFuc()
+        {
+            var targetDir = SelectFolder(Properties.Resources.SelectTargetFolderCaption);
+            if (targetDir != null && targetDir.Exists)
+            {
+                TargetPath.Text = targetDir.FullName;
+            }
+        }
+
+        void CanSelectFile()
+        {
+            SelectTargetPath.IsEnabled = true;
+            SelectTargetPath.Click -= SelectTargetPath_Click_File;
+            SelectTargetPath.Click -= SelectTargetPath_Click_Folder;
+            SelectTargetPath.Click += SelectTargetPath_Click_File;
+            SelectTargetPath.Content = Properties.Resources.SelectTargetFileButton;
+        }
+
+        void CanSelectDircetory()
+        {
+            SelectTargetPath.IsEnabled = true;
+            SelectTargetPath.Click -= SelectTargetPath_Click_Folder;
+            SelectTargetPath.Click -= SelectTargetPath_Click_File;
+            SelectTargetPath.Click += SelectTargetPath_Click_Folder;
+            SelectTargetPath.Content = Properties.Resources.SelectTargetFolderButton;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -84,7 +113,7 @@ namespace LinkMaker
                         string TargetFileExtension = ifTargetFile.Extension;
                         if (TargetFileExtension != ifLinkFile.Extension)
                         {
-                            var res = MessageBox.Show($"{Properties.Resources.ExtensionIsNotSame_1}\"{TargetFileExtension}\"{Properties.Resources.ExtensionIsNotSame_2}", Properties.Resources.Tip, MessageBoxButton.OKCancel);
+                            var res = MessageBox.Show(string.Format(Properties.Resources.ExtensionIsNotSame, TargetFileExtension), Properties.Resources.Tip, MessageBoxButton.OKCancel);
                             if (res == MessageBoxResult.OK)
                             {
                                 LinkName.Text += $"{TargetFileExtension}";

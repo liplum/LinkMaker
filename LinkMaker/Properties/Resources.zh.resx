@@ -135,12 +135,9 @@
   <data name="Error" xml:space="preserve">
     <value>错误</value>
   </data>
-  <data name="ExtensionIsNotSame_1" xml:space="preserve">
+  <data name="ExtensionIsNotSame" xml:space="preserve">
     <value>你链接的拓展名与目标位置的拓展名不同，
-你想要自动为其添加</value>
-  </data>
-  <data name="ExtensionIsNotSame_2" xml:space="preserve">
-    <value>在末尾吗？</value>
+你想要自动为其添加{content}在末尾吗？</value>
   </data>
   <data name="FileSymbolicLinkIsInapplicableException" xml:space="preserve">
     <value>目标位置已经是一个文件了，并非是文件夹！</value>
@@ -192,11 +189,23 @@
   <data name="SelectLinkDirectoryCaption" xml:space="preserve">
     <value>选择你想要创建的链接所在的目录</value>
   </data>
-  <data name="SelectTargetPathButton" xml:space="preserve">
-    <value>选择目标位置</value>
+  <data name="SelectLinkFileButton" xml:space="preserve">
+    <value>选择文件</value>
   </data>
-  <data name="SelectTargetPathCaption" xml:space="preserve">
-    <value>选择一个你想要被链接的目标位置</value>
+  <data name="SelectTargetFileButton" xml:space="preserve">
+    <value>选择文件</value>
+  </data>
+  <data name="SelectTargetFileCaption" xml:space="preserve">
+    <value>选择一个你想要被链接的文件</value>
+  </data>
+  <data name="SelectTargetFolderButton" xml:space="preserve">
+    <value>选择文件夹</value>
+  </data>
+  <data name="SelectTargetFolderCaption" xml:space="preserve">
+    <value>选择一个你想要被链接的文件夹</value>
+  </data>
+  <data name="SelectTargetPathButton" xml:space="preserve">
+    <value>选择目标</value>
   </data>
   <data name="TargetHasNotExistedYet" xml:space="preserve">
     <value>目标位置尚未创建。</value>
