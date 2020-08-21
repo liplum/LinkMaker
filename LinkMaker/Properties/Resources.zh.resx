@@ -137,7 +137,7 @@
   </data>
   <data name="ExtensionIsNotSame" xml:space="preserve">
     <value>你链接的拓展名与目标位置的拓展名不同，
-你想要自动为其添加{content}在末尾吗？</value>
+你想要自动为其添加 {0} 在末尾吗？</value>
   </data>
   <data name="FileSymbolicLinkIsInapplicableException" xml:space="preserve">
     <value>目标位置已经是一个文件了，并非是文件夹！</value>

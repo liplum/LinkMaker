@@ -137,7 +137,7 @@
   </data>
   <data name="ExtensionIsNotSame" xml:space="preserve">
     <value>Your extension of Link's name is different from Target.
-Do you want to add {content} to Link's name at the end automatically or not.</value>
+Do you want to add {0} to Link's name at the end automatically or not.</value>
   </data>
   <data name="FileSymbolicLinkIsInapplicableException" xml:space="preserve">
     <value>Target has already been a directory but a file!</value>
