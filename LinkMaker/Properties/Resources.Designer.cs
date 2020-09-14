@@ -61,6 +61,15 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Clear 的本地化字符串。
+        /// </summary>
+        public static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Create 的本地化字符串。
         /// </summary>
         public static string CreateButton {
@@ -116,7 +125,7 @@ namespace LinkMaker.Properties {
         
         /// <summary>
         ///   查找类似 Your extension of Link&apos;s name is different from Target.
-        ///Do you want to add {content} to Link&apos;s name at the end automatically or not. 的本地化字符串。
+        ///Do you want to add {0} to Link&apos;s name at the end automatically or not. 的本地化字符串。
         /// </summary>
         public static string ExtensionIsNotSame {
             get {

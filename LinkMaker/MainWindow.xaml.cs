@@ -94,7 +94,7 @@ namespace LinkMaker
             }
             else
             {
-                textbox.Text = array.GetValue(0).ToString();
+                SetTarget(array.GetValue(0).ToString());
             }
         }
 
@@ -157,6 +157,11 @@ namespace LinkMaker
         private void HardLinkButton_Checked(object sender, RoutedEventArgs e)
         {
             CanSelectFile();
+        }
+
+        private void ClearTheLinkName_Click(object sender, RoutedEventArgs e)
+        {
+            ClearLinkName();
         }
     }
 }

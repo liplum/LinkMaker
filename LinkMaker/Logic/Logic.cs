@@ -1,5 +1,6 @@
 ﻿using MakeLinkLib;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using PhotosCategorier.Algorithm;
 using System;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -22,19 +23,27 @@ namespace LinkMaker
         void SelectTargetFileFuc()
         {
             var target = SelectFile(Properties.Resources.SelectTargetFileCaption);
-            if (target != null && target.Exists)
+            SetTarget(target.FullName);
+        }
+
+        void SetTarget(string targetName)
+        {
+            if (!string.IsNullOrEmpty(targetName))
             {
-                TargetPath.Text = target.FullName;
+                TargetPath.Text = targetName;
+                AutoGenerateName();
             }
         }
 
         void SelectTargetFolderFuc()
         {
             var targetDir = SelectFolder(Properties.Resources.SelectTargetFolderCaption);
-            if (targetDir != null && targetDir.Exists)
-            {
-                TargetPath.Text = targetDir.FullName;
-            }
+            SetTarget(targetDir.FullName);
+        }
+
+        void ClearLinkName()
+        {
+            LinkName.Text = "";
         }
 
         void CanSelectFile()
@@ -53,6 +62,20 @@ namespace LinkMaker
             SelectTargetPath.Click -= SelectTargetPath_Click_File;
             SelectTargetPath.Click += SelectTargetPath_Click_Folder;
             SelectTargetPath.Content = Properties.Resources.SelectTargetFolderButton;
+        }
+
+        void AutoGenerateName()
+        {
+            string lastName = TargetPath.Text.GetLastName();
+            if (lastName == null)
+            {
+                return;
+            }
+            if (!lastName.Equals(LinkName.Text))
+            {
+                LinkName.Text = lastName;
+            }
+
         }
 
         /// <summary>
