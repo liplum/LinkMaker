@@ -22,7 +22,7 @@ public class Parameter : Attribute
         Param = par;
     }
 }
-public static class MkLinkEnum
+public static class LinkModeHelper
 {
     public static string GetParameter(this LinkMode type)
     {

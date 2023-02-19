@@ -21,7 +21,10 @@ public partial class MainWindow
     private void SelectTargetFileFuc()
     {
         var target = SelectFile(Properties.Resources.SelectTargetFileCaption);
-        SetTarget(target.FullName);
+        if (target != null)
+        {
+            SetTarget(target.FullName);
+        }
     }
 
     private void SetTarget(string targetName)
@@ -34,7 +37,10 @@ public partial class MainWindow
     private void SelectTargetFolderFuc()
     {
         var targetDir = SelectFolder(Properties.Resources.SelectTargetFolderCaption);
-        SetTarget(targetDir.FullName);
+        if (targetDir != null)
+        {
+            SetTarget(targetDir.FullName);
+        }
     }
 
     private void ClearLinkName()
@@ -71,18 +77,15 @@ public partial class MainWindow
     }
 
     /// <summary>
-    /// 
+    /// Create
     /// </summary>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
     /// <exception cref="LinkExistedException"></exception>
     /// <exception cref="DriveLetterNotEqualException"></exception>
     /// <exception cref="InvalidLinkNameException"></exception>
     /// <exception cref="InvalidLinkDirectoryNameException"></exception>
-    private void CreateFunc()
+    private void CreateLinkOf(LinkMode mode, string linkName, string linkDirPath, string targetPath)
     {
-        var linkName = LinkName.Text;
-        var linkDirPath = LinkDirectoryName.Text;
-        var targetPath = TargetPath.Text;
-
         if (!IsValid(linkName))
         {
             throw new InvalidLinkNameException();
@@ -110,7 +113,7 @@ public partial class MainWindow
             Directory.CreateDirectory(linkDirPath);
         }
 
-        switch (CurrentMode)
+        switch (mode)
         {
             case LinkMode.DirectorySymbolicLink:
                 CreateDirectorySymbolicLink(linkFullName, targetPath);
@@ -125,35 +128,37 @@ public partial class MainWindow
                 CreateJunctionLink(linkFullName, targetPath);
                 break;
             default:
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(mode), mode, null);
         }
     }
 
-    private void CreateHardLink(string linkFullName, string targetPath)
+    /// <param name="linkFullPath">Its parent directory exists, and itself doesn't exist.</param>
+    /// <param name="targetPath">Already exists.</param>
+    private void CreateHardLink(string linkFullPath, string targetPath)
     {
         if (!File.Exists(targetPath))
             throw new TargetNotFoundException(targetPath);
-        
-        if (Path.GetPathRoot(targetPath) != Path.GetPathRoot(linkFullName))
+
+        if (Path.GetPathRoot(targetPath) != Path.GetPathRoot(linkFullPath))
             throw new DriveLetterNotEqualException();
-        
+
         var targetFileExtension = Path.GetExtension(targetPath);
-        if (targetFileExtension == Path.GetExtension(linkFullName)) return;
-        
+        if (targetFileExtension == Path.GetExtension(linkFullPath)) return;
+
         var res = MessageBox.Show(
             string.Format(Properties.Resources.ExtensionNotEqual, targetFileExtension),
             Properties.Resources.Tip, MessageBoxButton.OKCancel);
         if (res == MessageBoxResult.OK)
         {
-            linkFullName = @$"{linkFullName}\{targetFileExtension}";
-            LinkName.Text = linkFullName;
+            linkFullPath = @$"{linkFullPath}\{targetFileExtension}";
+            LinkName.Text = linkFullPath;
         }
 
 
         new MkLink
         {
             Mode = LinkMode.HardLink,
-            Link = linkFullName,
+            Link = linkFullPath,
             Target = targetPath
         }.Run();
     }
@@ -178,7 +183,9 @@ public partial class MainWindow
         }.Run();
     }
 
-    private void CreateDirectorySymbolicLink(string linkFullName, string targetPath)
+    /// <param name="linkFullPath">Its parent directory exists, and itself doesn't exist.</param>
+    /// <param name="targetPath">Already exists.</param>
+    private void CreateDirectorySymbolicLink(string linkFullPath, string targetPath)
     {
         if (File.Exists(targetPath))
         {
@@ -196,12 +203,14 @@ public partial class MainWindow
         new MkLink
         {
             Mode = LinkMode.FileSymbolicLink,
-            Link = linkFullName,
+            Link = linkFullPath,
             Target = targetPath
         }.Run();
     }
 
-    private void CreateJunctionLink(string linkFullName, string targetPath)
+    /// <param name="linkFullPath">Its parent directory exists, and itself doesn't exist.</param>
+    /// <param name="targetPath">Already exists.</param>
+    private void CreateJunctionLink(string linkFullPath, string targetPath)
     {
         if (File.Exists(targetPath))
         {
@@ -219,7 +228,7 @@ public partial class MainWindow
         new MkLink
         {
             Mode = LinkMode.JunctionLink,
-            Link = linkFullName,
+            Link = linkFullPath,
             Target = targetPath
         }.Run();
     }
@@ -234,7 +243,7 @@ public partial class MainWindow
         return LinkNameValidator().Matches(linkName).Count == 0;
     }
 
-    private static DirectoryInfo SelectFolder(string caption)
+    private static DirectoryInfo? SelectFolder(string caption)
     {
         using var dialog = new CommonOpenFileDialog(caption)
         {
@@ -244,7 +253,7 @@ public partial class MainWindow
         return dialog.ShowDialog() == CommonFileDialogResult.Ok ? new DirectoryInfo(dialog.FileName) : null;
     }
 
-    private static FileInfo SelectFile(string caption)
+    private static FileInfo? SelectFile(string caption)
     {
         using var dialog = new CommonOpenFileDialog(caption);
 

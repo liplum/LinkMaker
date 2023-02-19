@@ -16,7 +16,9 @@ public partial class MainWindow : Window
         InitializeComponent();
         CurrentMode = LinkMode.HardLink;
     }
+
     private LinkMode _currentMode;
+
     public LinkMode CurrentMode
     {
         get => _currentMode;
@@ -71,7 +73,12 @@ public partial class MainWindow : Window
     {
         try
         {
-            CreateFunc();
+            CreateLinkOf(
+                mode: CurrentMode,
+                linkName: LinkName.Text,
+                linkDirPath: LinkDirectoryName.Text,
+                targetPath: TargetPath.Text
+            );
         }
         catch (LinkExistedException)
         {
@@ -95,66 +102,55 @@ public partial class MainWindow : Window
         }
         catch (TargetFileSystemTypeException ex)
         {
-            if (ex.Requirement == FileSystemType.File)
-                MessageBox.Show(Properties.Resources.TargetRequireFileException, Properties.Resources.Error);
-            else
-                MessageBox.Show(Properties.Resources.TargetRequireDirectoryException, Properties.Resources.Error);
+            MessageBox.Show(
+                ex.Requirement == FileSystemType.File
+                    ? Properties.Resources.TargetRequireFileException
+                    : Properties.Resources.TargetRequireDirectoryException, Properties.Resources.Error);
         }
     }
 
     private void TargetPath_PreviewDrop(object sender, DragEventArgs e)
     {
-        var array = (Array)e.Data.GetData(DataFormats.FileDrop);
-        if (array == null || array.Length > 0)
+        if (e.Data.GetData(DataFormats.FileDrop) is Array { Length: > 0 } array)
         {
-            MessageBox.Show(Properties.Resources.InvalidDraggedItem, Properties.Resources.Error);
-            e.Handled = true;
+            var first = array.GetValue(0);
+            if (first != null)
+            {
+                SetTarget(first.ToString()!);
+            }
         }
         else
         {
-            SetTarget(array.GetValue(0)?.ToString());
+            MessageBox.Show(Properties.Resources.InvalidDraggedItem, Properties.Resources.Error);
         }
+
+        e.Handled = true;
     }
 
     private void TargetPath_PreviewDragOver(object sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-        {
-            e.Effects = DragDropEffects.Link;
-            e.Handled = true;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.None;
-        }
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Link : DragDropEffects.None;
+        e.Handled = true;
     }
 
     private void LinkDirectoryName_PreviewDragOver(object sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-        {
-            e.Effects = DragDropEffects.Link;
-            e.Handled = true;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.None;
-        }
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Link : DragDropEffects.None;
     }
 
     private void LinkDirectoryName_PreviewDrop(object sender, DragEventArgs e)
     {
         var textBox = (TextBox)sender;
-        var array = (Array)e.Data.GetData(DataFormats.FileDrop);
-        if (array == null)
-        {
-            MessageBox.Show(Properties.Resources.InvalidDraggedItem, Properties.Resources.Error);
-            e.Handled = true;
-        }
-        else
+        if (e.Data.GetData(DataFormats.FileDrop) is Array array)
         {
             textBox.Text = array.GetValue(0)?.ToString() ?? "";
         }
+        else
+        {
+            MessageBox.Show(Properties.Resources.InvalidDraggedItem, Properties.Resources.Error);
+        }
+
+        e.Handled = true;
     }
 
     private void DirectorySymbolicLinkButton_Checked(object sender, RoutedEventArgs e)

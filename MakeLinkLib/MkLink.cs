@@ -1,4 +1,4 @@
-﻿using static MakeLinkLib.MkLinkEnum;
+﻿using static MakeLinkLib.LinkModeHelper;
 
 namespace MakeLinkLib;
 
