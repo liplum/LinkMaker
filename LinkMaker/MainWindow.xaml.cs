@@ -47,10 +47,6 @@ namespace LinkMaker
             {
                 MessageBox.Show(Properties.Resources.HardLinkIsInapplicableException, Properties.Resources.Error);
             }
-            catch (TargetNeitherFileNorDirectoryException)
-            {
-                MessageBox.Show(Properties.Resources.TargetNeitherFileNorDirectoryException, Properties.Resources.Error);
-            }
             catch (LinkModeNotSelectedException)
             {
                 MessageBox.Show(Properties.Resources.NotSelectLinkModeException, Properties.Resources.Error);
@@ -63,38 +59,33 @@ namespace LinkMaker
             {
                 MessageBox.Show(Properties.Resources.LinkNameIsInvalidException, Properties.Resources.Error);
             }
-            catch (CancelOperationException)
-            {
-                ;
-            }
             catch (FileSymbolicLinkIsInapplicableException)
             {
-                MessageBox.Show(Properties.Resources.FileSymbolicLinkIsInapplicableException, Properties.Resources.Error);
+                MessageBox.Show(Properties.Resources.FileSymbolicLinkIsInapplicableException,
+                    Properties.Resources.Error);
             }
             catch (DirectorySymbolicLinkIsInapplicableException)
             {
-                MessageBox.Show(Properties.Resources.DirectorySymbolicLinkIsInapplicableException, Properties.Resources.Error);
+                MessageBox.Show(Properties.Resources.DirectorySymbolicLinkIsInapplicableException,
+                    Properties.Resources.Error);
             }
             catch (LinkDirectoryNameIsInvalidException)
             {
                 MessageBox.Show(Properties.Resources.LinkDirectoryNameIsInvalidException, Properties.Resources.Error);
-
             }
         }
 
         private void TargetPath_PreviewDrop(object sender, DragEventArgs e)
         {
-
-            var textbox = (TextBox)sender;
             var array = (Array)e.Data.GetData(DataFormats.FileDrop);
-            if (array == null)
+            if (array == null || array.Length > 0)
             {
                 MessageBox.Show(Properties.Resources.DraggedThingIsNotVaild, Properties.Resources.Error);
                 e.Handled = true;
             }
             else
             {
-                SetTarget(array.GetValue(0).ToString());
+                SetTarget(array.GetValue(0)?.ToString());
             }
         }
 
@@ -126,7 +117,7 @@ namespace LinkMaker
 
         private void LinkDirectoryName_PreviewDrop(object sender, DragEventArgs e)
         {
-            var textbox = (TextBox)sender;
+            var textBox = (TextBox)sender;
             var array = (Array)e.Data.GetData(DataFormats.FileDrop);
             if (array == null)
             {
@@ -135,7 +126,7 @@ namespace LinkMaker
             }
             else
             {
-                textbox.Text = array.GetValue(0).ToString();
+                textBox.Text = array.GetValue(0)?.ToString() ?? "";
             }
         }
 

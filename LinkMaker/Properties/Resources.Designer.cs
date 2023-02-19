@@ -215,7 +215,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Link has been existed or occupied!.
+        ///   Looks up a localized string similar to The link&apos;s path exists or is occupied..
         /// </summary>
         public static string LinkHasBeenExistedException {
             get {
@@ -233,8 +233,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Link&apos; name is invalid!
-        ///Please modify it..
+        ///   Looks up a localized string similar to The link&apos; name is invalid..
         /// </summary>
         public static string LinkNameIsInvalidException {
             get {
@@ -261,11 +260,20 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select File.
+        /// </summary>
+        public static string SelectFileButton {
+            get {
+                return ResourceManager.GetString("SelectFileButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Folder.
         /// </summary>
-        public static string SelectLinkDirectoryButton {
+        public static string SelectFolderButton {
             get {
-                return ResourceManager.GetString("SelectLinkDirectoryButton", resourceCulture);
+                return ResourceManager.GetString("SelectFolderButton", resourceCulture);
             }
         }
         
@@ -279,38 +287,11 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select File.
-        /// </summary>
-        public static string SelectLinkFileButton {
-            get {
-                return ResourceManager.GetString("SelectLinkFileButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select File.
-        /// </summary>
-        public static string SelectTargetFileButton {
-            get {
-                return ResourceManager.GetString("SelectTargetFileButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Select a file you want to be linked.
         /// </summary>
         public static string SelectTargetFileCaption {
             get {
                 return ResourceManager.GetString("SelectTargetFileCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select Folder.
-        /// </summary>
-        public static string SelectTargetFolderButton {
-            get {
-                return ResourceManager.GetString("SelectTargetFolderButton", resourceCulture);
             }
         }
         
@@ -338,15 +319,6 @@ namespace LinkMaker.Properties {
         public static string TargetHasNotExistedYet {
             get {
                 return ResourceManager.GetString("TargetHasNotExistedYet", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The Target is neither file nor directory!.
-        /// </summary>
-        public static string TargetNeitherFileNorDirectoryException {
-            get {
-                return ResourceManager.GetString("TargetNeitherFileNorDirectoryException", resourceCulture);
             }
         }
         

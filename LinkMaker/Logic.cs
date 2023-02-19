@@ -48,7 +48,7 @@ public partial class MainWindow
         SelectTargetPath.Click -= SelectTargetPath_Click_File;
         SelectTargetPath.Click -= SelectTargetPath_Click_Folder;
         SelectTargetPath.Click += SelectTargetPath_Click_File;
-        SelectTargetPath.Content = Properties.Resources.SelectTargetFileButton;
+        SelectTargetPath.Content = Properties.Resources.SelectFileButton;
     }
 
     private void CanSelectDirectory()
@@ -57,7 +57,7 @@ public partial class MainWindow
         SelectTargetPath.Click -= SelectTargetPath_Click_Folder;
         SelectTargetPath.Click -= SelectTargetPath_Click_File;
         SelectTargetPath.Click += SelectTargetPath_Click_Folder;
-        SelectTargetPath.Content = Properties.Resources.SelectTargetFolderButton;
+        SelectTargetPath.Content = Properties.Resources.SelectFolderButton;
     }
 
     private void AutoGenerateName()
@@ -199,7 +199,7 @@ public partial class MainWindow
                     Properties.Resources.Tip, MessageBoxButton.OKCancel);
                 if (res != MessageBoxResult.OK)
                 {
-                    throw new CancelOperationException();
+                    return;
                 }
             }
 

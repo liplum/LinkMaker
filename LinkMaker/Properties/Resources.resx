@@ -171,14 +171,13 @@ Please modify it.</value>
     <value>The directory which own the link you want to make isn't existed!</value>
   </data>
   <data name="LinkHasBeenExistedException" xml:space="preserve">
-    <value>The Link has been existed or occupied!</value>
+    <value>The link's path exists or is occupied.</value>
   </data>
   <data name="LinkModeLabel" xml:space="preserve">
     <value>Link's Mode</value>
   </data>
   <data name="LinkNameIsInvalidException" xml:space="preserve">
-    <value>The Link' name is invalid!
-Please modify it.</value>
+    <value>The link' name is invalid.</value>
   </data>
   <data name="LinkNameLabel" xml:space="preserve">
     <value>Link's Name</value>
@@ -186,22 +185,16 @@ Please modify it.</value>
   <data name="NotSelectLinkModeException" xml:space="preserve">
     <value>You need select the Link Mode!</value>
   </data>
-  <data name="SelectLinkDirectoryButton" xml:space="preserve">
-    <value>Select Folder</value>
-  </data>
   <data name="SelectLinkDirectoryCaption" xml:space="preserve">
     <value>Select a directory where you want to create the link</value>
   </data>
-  <data name="SelectLinkFileButton" xml:space="preserve">
-    <value>Select File</value>
-  </data>
-  <data name="SelectTargetFileButton" xml:space="preserve">
+  <data name="SelectFileButton" xml:space="preserve">
     <value>Select File</value>
   </data>
   <data name="SelectTargetFileCaption" xml:space="preserve">
     <value>Select a file you want to be linked</value>
   </data>
-  <data name="SelectTargetFolderButton" xml:space="preserve">
+  <data name="SelectFolderButton" xml:space="preserve">
     <value>Select Folder</value>
   </data>
   <data name="SelectTargetFolderCaption" xml:space="preserve">
@@ -212,9 +205,6 @@ Please modify it.</value>
   </data>
   <data name="TargetHasNotExistedYet" xml:space="preserve">
     <value>The Target hasn't existed yet.</value>
-  </data>
-  <data name="TargetNeitherFileNorDirectoryException" xml:space="preserve">
-    <value>The Target is neither file nor directory!</value>
   </data>
   <data name="TargetPathLabel" xml:space="preserve">
     <value>Target's Path</value>

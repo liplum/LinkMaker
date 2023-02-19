@@ -90,7 +90,7 @@
                     Name="SelectLinkDirectory"
                     Grid.Column="1"
                     Click="SelectLinkDirectory_Click"
-                    Content="{x:Static prop:Resources.SelectLinkDirectoryButton}" />
+                    Content="{x:Static prop:Resources.SelectFolderButton}" />
             </Grid>
 
             <Label

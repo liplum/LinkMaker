@@ -233,8 +233,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 链接名称不合法！
-        ///请修改后再试。.
+        ///   Looks up a localized string similar to 链接名称不合法。.
         /// </summary>
         public static string LinkNameIsInvalidException {
             get {
@@ -261,11 +260,20 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 选择文件.
+        /// </summary>
+        public static string SelectFileButton {
+            get {
+                return ResourceManager.GetString("SelectFileButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 选择文件夹.
         /// </summary>
-        public static string SelectLinkDirectoryButton {
+        public static string SelectFolderButton {
             get {
-                return ResourceManager.GetString("SelectLinkDirectoryButton", resourceCulture);
+                return ResourceManager.GetString("SelectFolderButton", resourceCulture);
             }
         }
         
@@ -279,38 +287,11 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 选择文件.
-        /// </summary>
-        public static string SelectLinkFileButton {
-            get {
-                return ResourceManager.GetString("SelectLinkFileButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 选择文件.
-        /// </summary>
-        public static string SelectTargetFileButton {
-            get {
-                return ResourceManager.GetString("SelectTargetFileButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 选择一个你想要被链接的文件.
         /// </summary>
         public static string SelectTargetFileCaption {
             get {
                 return ResourceManager.GetString("SelectTargetFileCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 选择文件夹.
-        /// </summary>
-        public static string SelectTargetFolderButton {
-            get {
-                return ResourceManager.GetString("SelectTargetFolderButton", resourceCulture);
             }
         }
         
@@ -338,15 +319,6 @@ namespace LinkMaker.Properties {
         public static string TargetHasNotExistedYet {
             get {
                 return ResourceManager.GetString("TargetHasNotExistedYet", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 目标位置既不是文件，也不是文件夹.
-        /// </summary>
-        public static string TargetNeitherFileNorDirectoryException {
-            get {
-                return ResourceManager.GetString("TargetNeitherFileNorDirectoryException", resourceCulture);
             }
         }
         

@@ -177,8 +177,7 @@
     <value>链接模式</value>
   </data>
   <data name="LinkNameIsInvalidException" xml:space="preserve">
-    <value>链接名称不合法！
-请修改后再试。</value>
+    <value>链接名称不合法。</value>
   </data>
   <data name="LinkNameLabel" xml:space="preserve">
     <value>链接名称</value>
@@ -186,22 +185,16 @@
   <data name="NotSelectLinkModeException" xml:space="preserve">
     <value>你需要先选择链接模式！</value>
   </data>
-  <data name="SelectLinkDirectoryButton" xml:space="preserve">
-    <value>选择文件夹</value>
-  </data>
   <data name="SelectLinkDirectoryCaption" xml:space="preserve">
     <value>选择你想要创建的链接所在的目录</value>
   </data>
-  <data name="SelectLinkFileButton" xml:space="preserve">
-    <value>选择文件</value>
-  </data>
-  <data name="SelectTargetFileButton" xml:space="preserve">
+  <data name="SelectFileButton" xml:space="preserve">
     <value>选择文件</value>
   </data>
   <data name="SelectTargetFileCaption" xml:space="preserve">
     <value>选择一个你想要被链接的文件</value>
   </data>
-  <data name="SelectTargetFolderButton" xml:space="preserve">
+  <data name="SelectFolderButton" xml:space="preserve">
     <value>选择文件夹</value>
   </data>
   <data name="SelectTargetFolderCaption" xml:space="preserve">
@@ -212,9 +205,6 @@
   </data>
   <data name="TargetHasNotExistedYet" xml:space="preserve">
     <value>目标位置尚未创建。</value>
-  </data>
-  <data name="TargetNeitherFileNorDirectoryException" xml:space="preserve">
-    <value>目标位置既不是文件，也不是文件夹</value>
   </data>
   <data name="TargetPathLabel" xml:space="preserve">
     <value>目标位置</value>

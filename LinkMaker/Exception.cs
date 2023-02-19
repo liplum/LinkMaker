@@ -24,16 +24,6 @@ public class FileSymbolicLinkIsInapplicableException : Exception
     }
 }
 
-public class CancelOperationException : Exception
-{
-    public CancelOperationException()
-    {
-    }
-
-    public CancelOperationException(string message) : base(message)
-    {
-    }
-}
 
 public class LinkNameIsInvalidException : Exception
 {
