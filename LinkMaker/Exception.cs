@@ -2,69 +2,35 @@
 
 namespace LinkMaker;
 
-public class DirectorySymbolicLinkIsInapplicableException : Exception
+public class InvalidLinkNameException : Exception
 {
-    public DirectorySymbolicLinkIsInapplicableException()
+    public InvalidLinkNameException()
     {
     }
 
-    public DirectorySymbolicLinkIsInapplicableException(string message) : base(message)
+    public InvalidLinkNameException(string message) : base(message)
     {
     }
 }
 
-public class FileSymbolicLinkIsInapplicableException : Exception
+public class InvalidLinkDirectoryNameException : Exception
 {
-    public FileSymbolicLinkIsInapplicableException()
+    public InvalidLinkDirectoryNameException()
     {
     }
 
-    public FileSymbolicLinkIsInapplicableException(string message) : base(message)
+    public InvalidLinkDirectoryNameException(string message) : base(message)
     {
     }
 }
 
-
-public class LinkNameIsInvalidException : Exception
+public class LinkExistedException : Exception
 {
-    public LinkNameIsInvalidException()
+    public LinkExistedException()
     {
     }
 
-    public LinkNameIsInvalidException(string message) : base(message)
-    {
-    }
-}
-
-public class LinkDirectoryNameIsInvalidException : Exception
-{
-    public LinkDirectoryNameIsInvalidException()
-    {
-    }
-
-    public LinkDirectoryNameIsInvalidException(string message) : base(message)
-    {
-    }
-}
-
-public class LinkDirectoryIsNotExistedException : Exception
-{
-    public LinkDirectoryIsNotExistedException()
-    {
-    }
-
-    public LinkDirectoryIsNotExistedException(string message) : base(message)
-    {
-    }
-}
-
-public class LinkHasBeenExistedException : Exception
-{
-    public LinkHasBeenExistedException()
-    {
-    }
-
-    public LinkHasBeenExistedException(string message) : base(message)
+    public LinkExistedException(string message) : base(message)
     {
     }
 }

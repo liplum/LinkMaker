@@ -87,15 +87,6 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Target is a file but not a directory..
-        /// </summary>
-        public static string DirectorySymbolicLinkIsInapplicableException {
-            get {
-                return ResourceManager.GetString("DirectorySymbolicLinkIsInapplicableException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Dir SymLink.
         /// </summary>
         public static string DirectorySymbolicLinkRadioButton {
@@ -133,15 +124,6 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Target is a directory but not a file..
-        /// </summary>
-        public static string FileSymbolicLinkIsInapplicableException {
-            get {
-                return ResourceManager.GetString("FileSymbolicLinkIsInapplicableException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to File SymLink.
         /// </summary>
         public static string FileSymbolicLinkRadioButton {
@@ -165,15 +147,6 @@ namespace LinkMaker.Properties {
         public static string HardLinkRadioButton {
             get {
                 return ResourceManager.GetString("HardLinkRadioButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Junction Link Mode requires the target to be a directory..
-        /// </summary>
-        public static string JunctionLinkIsInapplicableException {
-            get {
-                return ResourceManager.GetString("JunctionLinkIsInapplicableException", resourceCulture);
             }
         }
         
@@ -202,15 +175,6 @@ namespace LinkMaker.Properties {
         public static string LinkDirectoryNameIsInvalidException {
             get {
                 return ResourceManager.GetString("LinkDirectoryNameIsInvalidException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The directory which own the link you want to make isn&apos;t existed!.
-        /// </summary>
-        public static string LinkDirectroyIsNotExistedException {
-            get {
-                return ResourceManager.GetString("LinkDirectroyIsNotExistedException", resourceCulture);
             }
         }
         
@@ -346,15 +310,6 @@ namespace LinkMaker.Properties {
         public static string WhetherContinue {
             get {
                 return ResourceManager.GetString("WhetherContinue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Do you want to craete the Target directory automatically?.
-        /// </summary>
-        public static string WhetherMkDirTarget {
-            get {
-                return ResourceManager.GetString("WhetherMkDirTarget", resourceCulture);
             }
         }
     }

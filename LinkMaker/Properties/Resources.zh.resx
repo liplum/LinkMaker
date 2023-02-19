@@ -126,9 +126,6 @@
   <data name="DifferentFromDriveLetterException" xml:space="preserve">
     <value>链接和目标位置在不同的磁盘上。</value>
   </data>
-  <data name="DirectorySymbolicLinkIsInapplicableException" xml:space="preserve">
-    <value>目标位置是一个文件夹，而非文件。</value>
-  </data>
   <data name="DirectorySymbolicLinkRadioButton" xml:space="preserve">
     <value>目录符号链接</value>
   </data>
@@ -142,9 +139,6 @@
     <value>你链接的拓展名与目标位置的拓展名不同，
 要为其添加 {0} 在末尾吗？</value>
   </data>
-  <data name="FileSymbolicLinkIsInapplicableException" xml:space="preserve">
-    <value>目标位置是一个文件，而非文件夹。</value>
-  </data>
   <data name="FileSymbolicLinkRadioButton" xml:space="preserve">
     <value>文件符号链接</value>
   </data>
@@ -153,9 +147,6 @@
   </data>
   <data name="HardLinkRadioButton" xml:space="preserve">
     <value>硬链接</value>
-  </data>
-  <data name="JunctionLinkIsInapplicableException" xml:space="preserve">
-    <value>联接模式需要目标位置都是文件夹。</value>
   </data>
   <data name="JunctionLinkRadioButton" xml:space="preserve">
     <value>联接</value>
@@ -166,9 +157,6 @@
   <data name="LinkDirectoryNameIsInvalidException" xml:space="preserve">
     <value>链接所在目录的名称不合法！
 请修改后再试。</value>
-  </data>
-  <data name="LinkDirectroyIsNotExistedException" xml:space="preserve">
-    <value>你想要创建的链接所在的目录不存在！</value>
   </data>
   <data name="LinkHasBeenExistedException" xml:space="preserve">
     <value>这个链接已经存在或已被占用了！</value>
@@ -214,8 +202,5 @@
   </data>
   <data name="WhetherContinue" xml:space="preserve">
     <value>是否继续？</value>
-  </data>
-  <data name="WhetherMkDirTarget" xml:space="preserve">
-    <value>是否要自动创建目标文件夹？</value>
   </data>
 </root>

@@ -73,42 +73,37 @@ public partial class MainWindow
     /// <summary>
     /// 
     /// </summary>
-    /// <exception cref="LinkHasBeenExistedException"></exception>
+    /// <exception cref="LinkExistedException"></exception>
     /// <exception cref="DifferentFromDriveLetterException"></exception>
     /// <exception cref="LinkModeNotSelectedException"></exception>
-    /// <exception cref="LinkDirectoryIsNotExistedException"></exception>
-    /// <exception cref="LinkNameIsInvalidException"></exception>
-    /// <exception cref="CancelOperationException"></exception>
-    /// <exception cref="LinkDirectoryNameIsInvalidException"></exception>
+    /// <exception cref="InvalidLinkNameException"></exception>
+    /// <exception cref="InvalidLinkDirectoryNameException"></exception>
     private void CreateFunc()
     {
-        if (!IsValid(LinkName.Text))
+        var linkName = LinkName.Text;
+        var linkDirPath = LinkDirectoryName.Text;
+        var targetPath = TargetPath.Text;
+
+        if (!IsValid(linkName))
         {
-            throw new LinkNameIsInvalidException();
+            throw new InvalidLinkNameException();
         }
 
-        if (!IsValid(LinkDirectoryName.Text))
+        if (!IsValid(linkDirPath))
         {
-            throw new LinkDirectoryNameIsInvalidException();
+            throw new InvalidLinkDirectoryNameException();
         }
 
-        var linkFullName = $@"{LinkDirectoryName.Text}\{LinkName.Text}";
-        var linkDir = new DirectoryInfo(LinkDirectoryName.Text);
+        var linkFullName = $@"{linkDirPath}\{linkName}";
 
-        var ifLinkIsDir = new DirectoryInfo(linkFullName);
-        var ifLinkFile = new FileInfo(linkFullName);
-
-        var ifTargetFile = new FileInfo(TargetPath.Text);
-        var ifTargetDir = new DirectoryInfo(TargetPath.Text);
-
-        if (ifLinkIsDir.Exists || ifLinkFile.Exists) //当所要创建的链接已经存在的时候
+        if (File.Exists(linkFullName))
         {
-            throw new LinkHasBeenExistedException();
+            throw new LinkExistedException();
         }
 
-        if (!linkDir.Exists) //所要创建的链接，它所在的文件夹不存在时
+        if (!Directory.Exists(linkDirPath)) //所要创建的链接，它所在的文件夹不存在时
         {
-            throw new LinkDirectoryIsNotExistedException(LinkDirectoryName.Text);
+            Directory.CreateDirectory(linkDirPath);
         }
 
         LinkMode link;
@@ -117,13 +112,13 @@ public partial class MainWindow
         if (HardLinkButton.IsChecked == true)
         {
             //硬链接要求目标文件存在
-            if (ifTargetFile.Exists)
+            if (File.Exists(targetPath))
             {
-                if (GetDriveLetter(ifTargetFile.FullName) == GetDriveLetter(ifLinkFile.FullName))
+                if (Path.GetPathRoot(targetPath) == Path.GetPathRoot(linkFullName))
                 {
                     link = LinkMode.HardLink;
-                    var targetFileExtension = ifTargetFile.Extension;
-                    if (targetFileExtension != ifLinkFile.Extension)
+                    var targetFileExtension = Path.GetExtension(targetPath);
+                    if (targetFileExtension != Path.GetExtension(linkFullName))
                     {
                         var res = MessageBox.Show(
                             string.Format(Properties.Resources.ExtensionIsNotSame, targetFileExtension),
@@ -131,7 +126,7 @@ public partial class MainWindow
                         if (res == MessageBoxResult.OK)
                         {
                             LinkName.Text += $"{targetFileExtension}";
-                            linkFullName = $@"{LinkDirectoryName.Text}\{LinkName.Text}";
+                            linkFullName = $@"{linkDirPath}\{linkName}";
                         }
                     }
                 }
@@ -148,16 +143,9 @@ public partial class MainWindow
         //当选择Junction Link时
         else if (JunctionLinkButton.IsChecked == true)
         {
-            //判断目标地址是否是文件夹，此时需要两者都是目录
-            if (!ifTargetDir.Exists)
+            if (!Directory.Exists(targetPath))
             {
-                var res = MessageBox.Show(
-                    $"{Properties.Resources.TargetHasNotExistedYet}\n{Properties.Resources.WhetherMkDirTarget}",
-                    Properties.Resources.Tip, MessageBoxButton.OKCancel);
-                if (res == MessageBoxResult.OK)
-                {
-                    ifTargetDir.Create();
-                }
+                Directory.CreateDirectory(targetPath);
             }
 
             link = LinkMode.JunctionLink;
@@ -165,21 +153,9 @@ public partial class MainWindow
         //当选择Directory Symbolic Link时
         else if (DirectorySymbolicLinkButton.IsChecked == true)
         {
-            if (ifTargetFile.Exists)
+            if (!Directory.Exists(targetPath))
             {
-                throw new DirectorySymbolicLinkIsInapplicableException();
-            }
-
-            //当目标地址是文件夹时
-            if (!ifTargetDir.Exists)
-            {
-                var res = MessageBox.Show(
-                    $"{Properties.Resources.TargetHasNotExistedYet}\n{Properties.Resources.WhetherMkDirTarget}",
-                    Properties.Resources.Tip, MessageBoxButton.OKCancel);
-                if (res == MessageBoxResult.OK)
-                {
-                    ifTargetDir.Create();
-                }
+                Directory.CreateDirectory(targetPath);
             }
 
             link = LinkMode.DirectorySymbolLink;
@@ -187,16 +163,13 @@ public partial class MainWindow
         //当选择File Symbolic Link时
         else if (FileSymbolicLinkButton.IsChecked == true)
         {
-            if (ifTargetDir.Exists)
-            {
-                throw new FileSymbolicLinkIsInapplicableException();
-            }
-
-            if (!ifTargetFile.Exists)
+            if (!File.Exists(targetPath))
             {
                 var res = MessageBox.Show(
                     $"{Properties.Resources.TargetHasNotExistedYet}\n{Properties.Resources.WhetherContinue}",
-                    Properties.Resources.Tip, MessageBoxButton.OKCancel);
+                    Properties.Resources.Tip,
+                    MessageBoxButton.OKCancel
+                );
                 if (res != MessageBoxResult.OK)
                 {
                     return;
@@ -230,14 +203,6 @@ public partial class MainWindow
         return LinkNameValidator().Matches(linkName).Count == 0;
     }
 
-    [GeneratedRegex("^[c-zC-Z]")]
-    private static partial Regex DriveLetterRegex();
-
-    private static string GetDriveLetter(string fileFullName)
-    {
-        return DriveLetterRegex().Match(fileFullName).Value;
-    }
-
     private static DirectoryInfo SelectFolder(string caption)
     {
         using var dialog = new CommonOpenFileDialog(caption)
@@ -248,11 +213,10 @@ public partial class MainWindow
         return dialog.ShowDialog() == CommonFileDialogResult.Ok ? new DirectoryInfo(dialog.FileName) : null;
     }
 
-    private static FileInfo SelectFile(string Caption)
+    private static FileInfo SelectFile(string caption)
     {
-        using var dialog = new CommonOpenFileDialog(Caption);
+        using var dialog = new CommonOpenFileDialog(caption);
 
         return dialog.ShowDialog() == CommonFileDialogResult.Ok ? new FileInfo(dialog.FileName) : null;
     }
-
 }

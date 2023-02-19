@@ -87,15 +87,6 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 目标位置是一个文件夹，而非文件。.
-        /// </summary>
-        public static string DirectorySymbolicLinkIsInapplicableException {
-            get {
-                return ResourceManager.GetString("DirectorySymbolicLinkIsInapplicableException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 目录符号链接.
         /// </summary>
         public static string DirectorySymbolicLinkRadioButton {
@@ -133,15 +124,6 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 目标位置是一个文件，而非文件夹。.
-        /// </summary>
-        public static string FileSymbolicLinkIsInapplicableException {
-            get {
-                return ResourceManager.GetString("FileSymbolicLinkIsInapplicableException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 文件符号链接.
         /// </summary>
         public static string FileSymbolicLinkRadioButton {
@@ -165,15 +147,6 @@ namespace LinkMaker.Properties {
         public static string HardLinkRadioButton {
             get {
                 return ResourceManager.GetString("HardLinkRadioButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 联接模式需要目标位置都是文件夹。.
-        /// </summary>
-        public static string JunctionLinkIsInapplicableException {
-            get {
-                return ResourceManager.GetString("JunctionLinkIsInapplicableException", resourceCulture);
             }
         }
         
@@ -202,15 +175,6 @@ namespace LinkMaker.Properties {
         public static string LinkDirectoryNameIsInvalidException {
             get {
                 return ResourceManager.GetString("LinkDirectoryNameIsInvalidException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 你想要创建的链接所在的目录不存在！.
-        /// </summary>
-        public static string LinkDirectroyIsNotExistedException {
-            get {
-                return ResourceManager.GetString("LinkDirectroyIsNotExistedException", resourceCulture);
             }
         }
         
@@ -346,15 +310,6 @@ namespace LinkMaker.Properties {
         public static string WhetherContinue {
             get {
                 return ResourceManager.GetString("WhetherContinue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 是否要自动创建目标文件夹？.
-        /// </summary>
-        public static string WhetherMkDirTarget {
-            get {
-                return ResourceManager.GetString("WhetherMkDirTarget", resourceCulture);
             }
         }
     }
