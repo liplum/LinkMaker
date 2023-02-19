@@ -1,21 +1,15 @@
-﻿using static MakeLinkLib.MkLinkEumn;
+﻿using static MakeLinkLib.MkLinkEnum;
 
-namespace MakeLinkLib
+namespace MakeLinkLib;
+
+public class MkLink
 {
-    public class MkLink
+    public LinkMode Mode { get; init; }
+    public string Link { get; init; }
+    public string Target { get; init; }
+
+    public void Run()
     {
-        private LinkMode Mode { get; set; }
-        private string Link { get; set; }
-        private string Target { get; set; }
-        public MkLink(LinkMode mode, string link, string target)
-        {
-            Mode = mode;
-            Link = link;
-            Target = target;
-        }
-        public void Run()
-        {
-            CMD.Run($"mklink {Mode.GetParameter()} \"{Link}\" \"{Target}\"");
-        }
+        CommandLine.Run($"mklink {Mode.GetParameter()} \"{Link}\" \"{Target}\"");
     }
 }

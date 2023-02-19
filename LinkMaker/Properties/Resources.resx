@@ -124,44 +124,44 @@
     <value>Create</value>
   </data>
   <data name="DifferentFromDriveLetterException" xml:space="preserve">
-    <value>The Link and the Target are in two Different Drive Letters!</value>
+    <value>The link and the target are on two different drives.</value>
   </data>
   <data name="DirectorySymbolicLinkIsInapplicableException" xml:space="preserve">
-    <value>Target has already been a file but a directory!</value>
+    <value>Target is a file but not a directory.</value>
   </data>
   <data name="DirectorySymbolicLinkRadioButton" xml:space="preserve">
     <value>Dir SymLink</value>
   </data>
   <data name="DraggedThingIsNotVaild" xml:space="preserve">
-    <value>This dragged by you is invaild!</value>
+    <value>What you dragged is invaild.</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
   <data name="ExtensionIsNotSame" xml:space="preserve">
-    <value>Your extension of Link's name is different from Target.
-Do you want to add {0} to Link's name at the end automatically or not.</value>
+    <value>The link's extension is different from the target.
+Do you want to add {0} to Link's name at the end?</value>
   </data>
   <data name="FileSymbolicLinkIsInapplicableException" xml:space="preserve">
-    <value>Target has already been a directory but a file!</value>
+    <value>Target is a directory but not a file.</value>
   </data>
   <data name="FileSymbolicLinkRadioButton" xml:space="preserve">
     <value>File SymLink</value>
   </data>
   <data name="HardLinkIsInapplicableException" xml:space="preserve">
-    <value>Hard Link Mode need the Target was file!</value>
+    <value>Hard Link Mode requires the target to be a file.</value>
   </data>
   <data name="HardLinkRadioButton" xml:space="preserve">
     <value>Hard Link</value>
   </data>
   <data name="JunctionLinkIsInapplicableException" xml:space="preserve">
-    <value>Junction Link Mode need both the Link and the Target are directory!</value>
+    <value>Junction Link Mode requires the target to be a directory.</value>
   </data>
   <data name="JunctionLinkRadioButton" xml:space="preserve">
     <value>Junction Link</value>
   </data>
   <data name="LinkDirectoryLabel" xml:space="preserve">
-    <value>Link's Directory:</value>
+    <value>Link's Directory</value>
   </data>
   <data name="LinkDirectoryNameIsInvalidException" xml:space="preserve">
     <value>The Link' directory is invalid!
@@ -174,14 +174,14 @@ Please modify it.</value>
     <value>The Link has been existed or occupied!</value>
   </data>
   <data name="LinkModeLabel" xml:space="preserve">
-    <value>Link's Mod:</value>
+    <value>Link's Mode</value>
   </data>
   <data name="LinkNameIsInvalidException" xml:space="preserve">
     <value>The Link' name is invalid!
 Please modify it.</value>
   </data>
   <data name="LinkNameLabel" xml:space="preserve">
-    <value>Link's Name:</value>
+    <value>Link's Name</value>
   </data>
   <data name="NotSelectLinkModeException" xml:space="preserve">
     <value>You need select the Link Mode!</value>
@@ -217,7 +217,7 @@ Please modify it.</value>
     <value>The Target is neither file nor directory!</value>
   </data>
   <data name="TargetPathLabel" xml:space="preserve">
-    <value>Target's Path:</value>
+    <value>Target's Path</value>
   </data>
   <data name="Tip" xml:space="preserve">
     <value>Tip</value>

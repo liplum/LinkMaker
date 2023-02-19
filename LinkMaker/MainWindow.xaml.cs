@@ -51,11 +51,11 @@ namespace LinkMaker
             {
                 MessageBox.Show(Properties.Resources.TargetNeitherFileNorDirectoryException, Properties.Resources.Error);
             }
-            catch (NotSelectLinkModeException)
+            catch (LinkModeNotSelectedException)
             {
                 MessageBox.Show(Properties.Resources.NotSelectLinkModeException, Properties.Resources.Error);
             }
-            catch (LinkDirectroyIsNotExistedException)
+            catch (LinkDirectoryIsNotExistedException)
             {
                 MessageBox.Show(Properties.Resources.LinkDirectroyIsNotExistedException, Properties.Resources.Error);
             }
@@ -141,7 +141,7 @@ namespace LinkMaker
 
         private void DirectorySymbolicLinkButton_Checked(object sender, RoutedEventArgs e)
         {
-            CanSelectDircetory();
+            CanSelectDirectory();
         }
 
         private void FileSymbolicLinkButton_Checked(object sender, RoutedEventArgs e)
@@ -151,7 +151,7 @@ namespace LinkMaker
 
         private void JunctionLinkButton_Checked(object sender, RoutedEventArgs e)
         {
-            CanSelectDircetory();
+            CanSelectDirectory();
         }
 
         private void HardLinkButton_Checked(object sender, RoutedEventArgs e)
