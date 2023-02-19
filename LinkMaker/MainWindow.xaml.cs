@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using MakeLinkLib;
 
 namespace LinkMaker;
 
@@ -12,6 +14,42 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        CurrentMode = LinkMode.HardLink;
+    }
+    private LinkMode _currentMode;
+    public LinkMode CurrentMode
+    {
+        get => _currentMode;
+        set
+        {
+            _currentMode = value;
+            switch (value)
+            {
+                case LinkMode.DirectorySymbolicLink:
+                    OnlyCheck(DirectorySymbolicLinkButton);
+                    break;
+                case LinkMode.FileSymbolicLink:
+                    OnlyCheck(FileSymbolicLinkButton);
+                    break;
+                case LinkMode.HardLink:
+                    OnlyCheck(HardLinkButton);
+                    break;
+                case LinkMode.JunctionLink:
+                    OnlyCheck(JunctionLinkButton);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value), value, null);
+            }
+        }
+    }
+
+    private void OnlyCheck(ToggleButton checkedOne)
+    {
+        var buttons = new[] { HardLinkButton, DirectorySymbolicLinkButton, FileSymbolicLinkButton, JunctionLinkButton };
+        foreach (var button in buttons)
+        {
+            button.IsChecked = button == checkedOne;
+        }
     }
 
     private void SelectLinkDirectory_Click(object sender, RoutedEventArgs e)
@@ -39,7 +77,7 @@ public partial class MainWindow : Window
         {
             MessageBox.Show(Properties.Resources.LinkHasBeenExistedException, Properties.Resources.Error);
         }
-        catch (DifferentFromDriveLetterException)
+        catch (DriveLetterNotEqualException)
         {
             MessageBox.Show(Properties.Resources.DifferentFromDriveLetterException, Properties.Resources.Error);
         }
@@ -118,21 +156,25 @@ public partial class MainWindow : Window
 
     private void DirectorySymbolicLinkButton_Checked(object sender, RoutedEventArgs e)
     {
+        CurrentMode = LinkMode.DirectorySymbolicLink;
         CanSelectDirectory();
     }
 
     private void FileSymbolicLinkButton_Checked(object sender, RoutedEventArgs e)
     {
+        CurrentMode = LinkMode.FileSymbolicLink;
         CanSelectFile();
     }
 
     private void JunctionLinkButton_Checked(object sender, RoutedEventArgs e)
     {
+        CurrentMode = LinkMode.JunctionLink;
         CanSelectDirectory();
     }
 
     private void HardLinkButton_Checked(object sender, RoutedEventArgs e)
     {
+        CurrentMode = LinkMode.HardLink;
         CanSelectFile();
     }
 

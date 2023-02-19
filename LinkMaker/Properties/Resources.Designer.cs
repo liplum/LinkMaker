@@ -160,7 +160,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Link&apos;s Directory.
+        ///   Looks up a localized string similar to Link Directory.
         /// </summary>
         public static string LinkDirectoryLabel {
             get {
@@ -188,7 +188,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Link&apos;s Mode.
+        ///   Looks up a localized string similar to Link Mode.
         /// </summary>
         public static string LinkModeLabel {
             get {
@@ -206,7 +206,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Link&apos;s Name.
+        ///   Looks up a localized string similar to Link Name.
         /// </summary>
         public static string LinkNameLabel {
             get {
@@ -287,7 +287,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Target&apos;s Path.
+        ///   Looks up a localized string similar to Target Path.
         /// </summary>
         public static string TargetPathLabel {
             get {

@@ -3,29 +3,27 @@ using System.Reflection;
 
 namespace MakeLinkLib;
 
+public enum LinkMode
+{
+    [Parameter(@"/d")]
+    DirectorySymbolicLink,
+    [Parameter("")]
+    FileSymbolicLink,
+    [Parameter(@"/h")]
+    HardLink,
+    [Parameter(@"/j")]
+    JunctionLink
+}
+public class Parameter : Attribute
+{
+    public string Param { get; }
+    public Parameter(string par)
+    {
+        Param = par;
+    }
+}
 public static class MkLinkEnum
 {
-    public enum LinkMode
-    {
-        [Parameter(@"/d")]
-        DirectorySymbolLink,
-        [Parameter("")]
-        FileSymbolLink,
-        [Parameter(@"/h")]
-        HardLink,
-        [Parameter(@"/j")]
-        JunctionLink
-    }
-
-    private class Parameter : Attribute
-    {
-        public string Param { get; }
-        public Parameter(string par)
-        {
-            Param = par;
-        }
-    }
-
     public static string GetParameter(this LinkMode type)
     {
         var fi = type.GetType().GetField(type.ToString());

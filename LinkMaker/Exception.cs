@@ -35,13 +35,13 @@ public class LinkExistedException : Exception
     }
 }
 
-public class DifferentFromDriveLetterException : Exception
+public class DriveLetterNotEqualException : Exception
 {
-    public DifferentFromDriveLetterException()
+    public DriveLetterNotEqualException()
     {
     }
 
-    public DifferentFromDriveLetterException(string message) : base(message)
+    public DriveLetterNotEqualException(string message) : base(message)
     {
     }
 }

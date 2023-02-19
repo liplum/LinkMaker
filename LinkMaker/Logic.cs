@@ -1,9 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
 using MakeLinkLib;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using static MakeLinkLib.MkLinkEnum;
 
 namespace LinkMaker;
 
@@ -74,7 +74,7 @@ public partial class MainWindow
     /// 
     /// </summary>
     /// <exception cref="LinkExistedException"></exception>
-    /// <exception cref="DifferentFromDriveLetterException"></exception>
+    /// <exception cref="DriveLetterNotEqualException"></exception>
     /// <exception cref="LinkModeNotSelectedException"></exception>
     /// <exception cref="InvalidLinkNameException"></exception>
     /// <exception cref="InvalidLinkDirectoryNameException"></exception>
@@ -101,96 +101,115 @@ public partial class MainWindow
             throw new LinkExistedException();
         }
 
-        if (!Directory.Exists(linkDirPath)) //所要创建的链接，它所在的文件夹不存在时
+        if (!Directory.Exists(linkDirPath))
         {
             Directory.CreateDirectory(linkDirPath);
         }
 
-        LinkMode link;
-
-        //当选择Hard Link时，此时需要两者都是文件
-        if (HardLinkButton.IsChecked == true)
+        switch (CurrentMode)
         {
-            //硬链接要求目标文件存在
-            if (File.Exists(targetPath))
+            case LinkMode.DirectorySymbolicLink:
+                CreateDirectorySymbolicLink(linkFullName, targetPath);
+                break;
+            case LinkMode.FileSymbolicLink:
+                CreateFileSymbolicLink(linkFullName, targetPath);
+                break;
+            case LinkMode.HardLink:
+                CreateHardLink(linkFullName, targetPath);
+                break;
+            case LinkMode.JunctionLink:
+                CreateJunctionLink(linkFullName, targetPath);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void CreateHardLink(string linkFullName, string targetPath)
+    {
+        if (File.Exists(targetPath))
+        {
+            if (Path.GetPathRoot(targetPath) == Path.GetPathRoot(linkFullName))
             {
-                if (Path.GetPathRoot(targetPath) == Path.GetPathRoot(linkFullName))
+                var targetFileExtension = Path.GetExtension(targetPath);
+                if (targetFileExtension == Path.GetExtension(linkFullName)) return;
+                var res = MessageBox.Show(
+                    string.Format(Properties.Resources.ExtensionIsNotSame, targetFileExtension),
+                    Properties.Resources.Tip, MessageBoxButton.OKCancel);
+                if (res == MessageBoxResult.OK)
                 {
-                    link = LinkMode.HardLink;
-                    var targetFileExtension = Path.GetExtension(targetPath);
-                    if (targetFileExtension != Path.GetExtension(linkFullName))
-                    {
-                        var res = MessageBox.Show(
-                            string.Format(Properties.Resources.ExtensionIsNotSame, targetFileExtension),
-                            Properties.Resources.Tip, MessageBoxButton.OKCancel);
-                        if (res == MessageBoxResult.OK)
-                        {
-                            LinkName.Text += $"{targetFileExtension}";
-                            linkFullName = $@"{linkDirPath}\{linkName}";
-                        }
-                    }
-                }
-                else
-                {
-                    throw new DifferentFromDriveLetterException();
+                    LinkName.Text += $"{targetFileExtension}";
                 }
             }
             else
             {
-                throw new HardLinkIsInapplicableException(TargetPath.Text);
+                throw new DriveLetterNotEqualException();
             }
-        }
-        //当选择Junction Link时
-        else if (JunctionLinkButton.IsChecked == true)
-        {
-            if (!Directory.Exists(targetPath))
-            {
-                Directory.CreateDirectory(targetPath);
-            }
-
-            link = LinkMode.JunctionLink;
-        }
-        //当选择Directory Symbolic Link时
-        else if (DirectorySymbolicLinkButton.IsChecked == true)
-        {
-            if (!Directory.Exists(targetPath))
-            {
-                Directory.CreateDirectory(targetPath);
-            }
-
-            link = LinkMode.DirectorySymbolLink;
-        }
-        //当选择File Symbolic Link时
-        else if (FileSymbolicLinkButton.IsChecked == true)
-        {
-            if (!File.Exists(targetPath))
-            {
-                var res = MessageBox.Show(
-                    $"{Properties.Resources.TargetHasNotExistedYet}\n{Properties.Resources.WhetherContinue}",
-                    Properties.Resources.Tip,
-                    MessageBoxButton.OKCancel
-                );
-                if (res != MessageBoxResult.OK)
-                {
-                    return;
-                }
-            }
-
-            link = LinkMode.FileSymbolLink;
         }
         else
         {
-            throw new LinkModeNotSelectedException();
+            throw new HardLinkIsInapplicableException(targetPath);
         }
 
-        // Run the command
-        var cmd = new MkLink
+        new MkLink
         {
-            Mode = link,
+            Mode = LinkMode.HardLink,
             Link = linkFullName,
-            Target = TargetPath.Text
-        };
-        cmd.Run();
+            Target = targetPath
+        }.Run();
+    }
+
+    private void CreateFileSymbolicLink(string linkFullName, string targetPath)
+    {
+        if (!Directory.Exists(targetPath))
+        {
+            Directory.CreateDirectory(targetPath);
+        }
+
+        new MkLink
+        {
+            Mode = LinkMode.DirectorySymbolicLink,
+            Link = linkFullName,
+            Target = targetPath
+        }.Run();
+    }
+
+    private void CreateDirectorySymbolicLink(string linkFullName, string targetPath)
+    {
+        if (!File.Exists(targetPath))
+        {
+            var res = MessageBox.Show(
+                $"{Properties.Resources.TargetHasNotExistedYet}\n{Properties.Resources.WhetherContinue}",
+                Properties.Resources.Tip,
+                MessageBoxButton.OKCancel
+            );
+            if (res != MessageBoxResult.OK)
+            {
+                return;
+            }
+        }
+
+        new MkLink
+        {
+            Mode = LinkMode.FileSymbolicLink,
+            Link = linkFullName,
+            Target = targetPath
+        }.Run();
+    }
+
+    private void CreateJunctionLink(string linkFullName, string targetPath)
+    {
+        if (!Directory.Exists(targetPath))
+        {
+            Directory.CreateDirectory(targetPath);
+        }
+
+        new MkLink
+        {
+            Mode = LinkMode.JunctionLink,
+            Link = linkFullName,
+            Target = targetPath
+        }.Run();
     }
 
     [GeneratedRegex("^[\\/:*?\"<>|]$")]

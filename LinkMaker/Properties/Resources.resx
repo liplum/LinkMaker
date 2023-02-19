@@ -152,7 +152,7 @@ Do you want to add {0} to Link's name at the end?</value>
     <value>Junction Link</value>
   </data>
   <data name="LinkDirectoryLabel" xml:space="preserve">
-    <value>Link's Directory</value>
+    <value>Link Directory</value>
   </data>
   <data name="LinkDirectoryNameIsInvalidException" xml:space="preserve">
     <value>The Link' directory is invalid!
@@ -162,13 +162,13 @@ Please modify it.</value>
     <value>The link's path exists or is occupied.</value>
   </data>
   <data name="LinkModeLabel" xml:space="preserve">
-    <value>Link's Mode</value>
+    <value>Link Mode</value>
   </data>
   <data name="LinkNameIsInvalidException" xml:space="preserve">
     <value>The link' name is invalid.</value>
   </data>
   <data name="LinkNameLabel" xml:space="preserve">
-    <value>Link's Name</value>
+    <value>Link Name</value>
   </data>
   <data name="NotSelectLinkModeException" xml:space="preserve">
     <value>You need select the Link Mode!</value>
@@ -195,7 +195,7 @@ Please modify it.</value>
     <value>The Target hasn't existed yet.</value>
   </data>
   <data name="TargetPathLabel" xml:space="preserve">
-    <value>Target's Path</value>
+    <value>Target Path</value>
   </data>
   <data name="Tip" xml:space="preserve">
     <value>Tip</value>
