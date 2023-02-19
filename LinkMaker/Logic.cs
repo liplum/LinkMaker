@@ -75,7 +75,6 @@ public partial class MainWindow
     /// </summary>
     /// <exception cref="LinkExistedException"></exception>
     /// <exception cref="DriveLetterNotEqualException"></exception>
-    /// <exception cref="LinkModeNotSelectedException"></exception>
     /// <exception cref="InvalidLinkNameException"></exception>
     /// <exception cref="InvalidLinkDirectoryNameException"></exception>
     private void CreateFunc()
@@ -96,9 +95,14 @@ public partial class MainWindow
 
         var linkFullName = $@"{linkDirPath}\{linkName}";
 
-        if (File.Exists(linkFullName))
+        if (File.Exists(linkFullName) || Directory.Exists(linkFullName))
         {
             throw new LinkExistedException();
+        }
+
+        if (!File.Exists(linkFullName) && !Directory.Exists(linkFullName))
+        {
+            throw new TargetNotFoundException();
         }
 
         if (!Directory.Exists(linkDirPath))
@@ -127,29 +131,24 @@ public partial class MainWindow
 
     private void CreateHardLink(string linkFullName, string targetPath)
     {
-        if (File.Exists(targetPath))
+        if (!File.Exists(targetPath))
+            throw new TargetNotFoundException(targetPath);
+        
+        if (Path.GetPathRoot(targetPath) != Path.GetPathRoot(linkFullName))
+            throw new DriveLetterNotEqualException();
+        
+        var targetFileExtension = Path.GetExtension(targetPath);
+        if (targetFileExtension == Path.GetExtension(linkFullName)) return;
+        
+        var res = MessageBox.Show(
+            string.Format(Properties.Resources.ExtensionNotEqual, targetFileExtension),
+            Properties.Resources.Tip, MessageBoxButton.OKCancel);
+        if (res == MessageBoxResult.OK)
         {
-            if (Path.GetPathRoot(targetPath) == Path.GetPathRoot(linkFullName))
-            {
-                var targetFileExtension = Path.GetExtension(targetPath);
-                if (targetFileExtension == Path.GetExtension(linkFullName)) return;
-                var res = MessageBox.Show(
-                    string.Format(Properties.Resources.ExtensionIsNotSame, targetFileExtension),
-                    Properties.Resources.Tip, MessageBoxButton.OKCancel);
-                if (res == MessageBoxResult.OK)
-                {
-                    LinkName.Text += $"{targetFileExtension}";
-                }
-            }
-            else
-            {
-                throw new DriveLetterNotEqualException();
-            }
+            linkFullName = @$"{linkFullName}\{targetFileExtension}";
+            LinkName.Text = linkFullName;
         }
-        else
-        {
-            throw new HardLinkIsInapplicableException(targetPath);
-        }
+
 
         new MkLink
         {
@@ -159,34 +158,39 @@ public partial class MainWindow
         }.Run();
     }
 
-    private void CreateFileSymbolicLink(string linkFullName, string targetPath)
+    /// <param name="linkFullPath">Its parent directory exists, and itself doesn't exist.</param>
+    /// <param name="targetPath">Already exists.</param>
+    private void CreateFileSymbolicLink(string linkFullPath, string targetPath)
     {
-        if (!Directory.Exists(targetPath))
+        if (!File.Exists(targetPath))
         {
-            Directory.CreateDirectory(targetPath);
+            throw new TargetFileSystemTypeException
+            {
+                Requirement = FileSystemType.File
+            };
         }
 
         new MkLink
         {
             Mode = LinkMode.DirectorySymbolicLink,
-            Link = linkFullName,
+            Link = linkFullPath,
             Target = targetPath
         }.Run();
     }
 
     private void CreateDirectorySymbolicLink(string linkFullName, string targetPath)
     {
-        if (!File.Exists(targetPath))
+        if (File.Exists(targetPath))
         {
-            var res = MessageBox.Show(
-                $"{Properties.Resources.TargetHasNotExistedYet}\n{Properties.Resources.WhetherContinue}",
-                Properties.Resources.Tip,
-                MessageBoxButton.OKCancel
-            );
-            if (res != MessageBoxResult.OK)
+            throw new TargetFileSystemTypeException
             {
-                return;
-            }
+                Requirement = FileSystemType.Directory
+            };
+        }
+
+        if (!Directory.Exists(targetPath))
+        {
+            Directory.CreateDirectory(targetPath);
         }
 
         new MkLink
@@ -199,6 +203,14 @@ public partial class MainWindow
 
     private void CreateJunctionLink(string linkFullName, string targetPath)
     {
+        if (File.Exists(targetPath))
+        {
+            throw new TargetFileSystemTypeException
+            {
+                Requirement = FileSystemType.Directory
+            };
+        }
+
         if (!Directory.Exists(targetPath))
         {
             Directory.CreateDirectory(targetPath);

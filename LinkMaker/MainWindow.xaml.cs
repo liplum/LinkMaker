@@ -75,27 +75,30 @@ public partial class MainWindow : Window
         }
         catch (LinkExistedException)
         {
-            MessageBox.Show(Properties.Resources.LinkHasBeenExistedException, Properties.Resources.Error);
+            MessageBox.Show(Properties.Resources.LinkExistedException, Properties.Resources.Error);
         }
         catch (DriveLetterNotEqualException)
         {
-            MessageBox.Show(Properties.Resources.DifferentFromDriveLetterException, Properties.Resources.Error);
+            MessageBox.Show(Properties.Resources.DriveLetterNotEqualException, Properties.Resources.Error);
         }
-        catch (HardLinkIsInapplicableException)
+        catch (TargetNotFoundException)
         {
-            MessageBox.Show(Properties.Resources.HardLinkIsInapplicableException, Properties.Resources.Error);
-        }
-        catch (LinkModeNotSelectedException)
-        {
-            MessageBox.Show(Properties.Resources.NotSelectLinkModeException, Properties.Resources.Error);
+            MessageBox.Show(Properties.Resources.TargetNotFoundException, Properties.Resources.Error);
         }
         catch (InvalidLinkNameException)
         {
-            MessageBox.Show(Properties.Resources.LinkNameIsInvalidException, Properties.Resources.Error);
+            MessageBox.Show(Properties.Resources.InvalidLinkNameException, Properties.Resources.Error);
         }
         catch (InvalidLinkDirectoryNameException)
         {
-            MessageBox.Show(Properties.Resources.LinkDirectoryNameIsInvalidException, Properties.Resources.Error);
+            MessageBox.Show(Properties.Resources.InvalidLinkDirectoryNameException, Properties.Resources.Error);
+        }
+        catch (TargetFileSystemTypeException ex)
+        {
+            if (ex.Requirement == FileSystemType.File)
+                MessageBox.Show(Properties.Resources.TargetRequireFileException, Properties.Resources.Error);
+            else
+                MessageBox.Show(Properties.Resources.TargetRequireDirectoryException, Properties.Resources.Error);
         }
     }
 
@@ -104,7 +107,7 @@ public partial class MainWindow : Window
         var array = (Array)e.Data.GetData(DataFormats.FileDrop);
         if (array == null || array.Length > 0)
         {
-            MessageBox.Show(Properties.Resources.DraggedThingIsNotVaild, Properties.Resources.Error);
+            MessageBox.Show(Properties.Resources.InvalidDraggedItem, Properties.Resources.Error);
             e.Handled = true;
         }
         else
@@ -145,7 +148,7 @@ public partial class MainWindow : Window
         var array = (Array)e.Data.GetData(DataFormats.FileDrop);
         if (array == null)
         {
-            MessageBox.Show(Properties.Resources.DraggedThingIsNotVaild, Properties.Resources.Error);
+            MessageBox.Show(Properties.Resources.InvalidDraggedItem, Properties.Resources.Error);
             e.Handled = true;
         }
         else

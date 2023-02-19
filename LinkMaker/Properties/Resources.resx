@@ -123,27 +123,24 @@
   <data name="CreateButton" xml:space="preserve">
     <value>Create</value>
   </data>
-  <data name="DifferentFromDriveLetterException" xml:space="preserve">
+  <data name="DriveLetterNotEqualException" xml:space="preserve">
     <value>The link and the target are on two different drives.</value>
   </data>
   <data name="DirectorySymbolicLinkRadioButton" xml:space="preserve">
     <value>Dir SymLink</value>
   </data>
-  <data name="DraggedThingIsNotVaild" xml:space="preserve">
-    <value>What you dragged is invaild.</value>
+  <data name="InvalidDraggedItem" xml:space="preserve">
+    <value>The item that you dragged is invalid.</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="ExtensionIsNotSame" xml:space="preserve">
+  <data name="ExtensionNotEqual" xml:space="preserve">
     <value>The link's extension is different from the target.
 Do you want to add {0} to Link's name at the end?</value>
   </data>
   <data name="FileSymbolicLinkRadioButton" xml:space="preserve">
     <value>File SymLink</value>
-  </data>
-  <data name="HardLinkIsInapplicableException" xml:space="preserve">
-    <value>Hard Link Mode requires the target to be a file.</value>
   </data>
   <data name="HardLinkRadioButton" xml:space="preserve">
     <value>Hard Link</value>
@@ -154,24 +151,20 @@ Do you want to add {0} to Link's name at the end?</value>
   <data name="LinkDirectoryLabel" xml:space="preserve">
     <value>Link Directory</value>
   </data>
-  <data name="LinkDirectoryNameIsInvalidException" xml:space="preserve">
-    <value>The Link' directory is invalid!
-Please modify it.</value>
+  <data name="InvalidLinkDirectoryNameException" xml:space="preserve">
+    <value>The Link's directory is invalid.</value>
   </data>
-  <data name="LinkHasBeenExistedException" xml:space="preserve">
+  <data name="LinkExistedException" xml:space="preserve">
     <value>The link's path exists or is occupied.</value>
   </data>
   <data name="LinkModeLabel" xml:space="preserve">
     <value>Link Mode</value>
   </data>
-  <data name="LinkNameIsInvalidException" xml:space="preserve">
-    <value>The link' name is invalid.</value>
+  <data name="InvalidLinkNameException" xml:space="preserve">
+    <value>The link name is invalid.</value>
   </data>
   <data name="LinkNameLabel" xml:space="preserve">
     <value>Link Name</value>
-  </data>
-  <data name="NotSelectLinkModeException" xml:space="preserve">
-    <value>You need select the Link Mode!</value>
   </data>
   <data name="SelectLinkDirectoryCaption" xml:space="preserve">
     <value>Select a directory where you want to create the link</value>
@@ -191,16 +184,19 @@ Please modify it.</value>
   <data name="SelectTargetPathButton" xml:space="preserve">
     <value>Select Target</value>
   </data>
-  <data name="TargetHasNotExistedYet" xml:space="preserve">
-    <value>The Target hasn't existed yet.</value>
-  </data>
   <data name="TargetPathLabel" xml:space="preserve">
     <value>Target Path</value>
   </data>
   <data name="Tip" xml:space="preserve">
     <value>Tip</value>
   </data>
-  <data name="WhetherContinue" xml:space="preserve">
-    <value>Do you want to continue?</value>
+  <data name="TargetNotFoundException" xml:space="preserve">
+    <value>The target doesn't exist.</value>
+  </data>
+  <data name="TargetRequireFileException" xml:space="preserve">
+    <value>The target should be a file not a directory.</value>
+  </data>
+  <data name="TargetRequireDirectoryException" xml:space="preserve">
+    <value>The target should be a directory not a file.</value>
   </data>
 </root>

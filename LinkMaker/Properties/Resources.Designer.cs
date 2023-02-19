@@ -78,15 +78,6 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The link and the target are on two different drives..
-        /// </summary>
-        public static string DifferentFromDriveLetterException {
-            get {
-                return ResourceManager.GetString("DifferentFromDriveLetterException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Dir SymLink.
         /// </summary>
         public static string DirectorySymbolicLinkRadioButton {
@@ -96,11 +87,11 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What you dragged is invaild..
+        ///   Looks up a localized string similar to The link and the target are on two different drives..
         /// </summary>
-        public static string DraggedThingIsNotVaild {
+        public static string DriveLetterNotEqualException {
             get {
-                return ResourceManager.GetString("DraggedThingIsNotVaild", resourceCulture);
+                return ResourceManager.GetString("DriveLetterNotEqualException", resourceCulture);
             }
         }
         
@@ -117,9 +108,9 @@ namespace LinkMaker.Properties {
         ///   Looks up a localized string similar to The link&apos;s extension is different from the target.
         ///Do you want to add {0} to Link&apos;s name at the end?.
         /// </summary>
-        public static string ExtensionIsNotSame {
+        public static string ExtensionNotEqual {
             get {
-                return ResourceManager.GetString("ExtensionIsNotSame", resourceCulture);
+                return ResourceManager.GetString("ExtensionNotEqual", resourceCulture);
             }
         }
         
@@ -133,20 +124,38 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hard Link Mode requires the target to be a file..
-        /// </summary>
-        public static string HardLinkIsInapplicableException {
-            get {
-                return ResourceManager.GetString("HardLinkIsInapplicableException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Hard Link.
         /// </summary>
         public static string HardLinkRadioButton {
             get {
                 return ResourceManager.GetString("HardLinkRadioButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The item that you dragged is invalid..
+        /// </summary>
+        public static string InvalidDraggedItem {
+            get {
+                return ResourceManager.GetString("InvalidDraggedItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Link&apos;s directory is invalid..
+        /// </summary>
+        public static string InvalidLinkDirectoryNameException {
+            get {
+                return ResourceManager.GetString("InvalidLinkDirectoryNameException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The link name is invalid..
+        /// </summary>
+        public static string InvalidLinkNameException {
+            get {
+                return ResourceManager.GetString("InvalidLinkNameException", resourceCulture);
             }
         }
         
@@ -169,21 +178,11 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Link&apos; directory is invalid!
-        ///Please modify it..
-        /// </summary>
-        public static string LinkDirectoryNameIsInvalidException {
-            get {
-                return ResourceManager.GetString("LinkDirectoryNameIsInvalidException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The link&apos;s path exists or is occupied..
         /// </summary>
-        public static string LinkHasBeenExistedException {
+        public static string LinkExistedException {
             get {
-                return ResourceManager.GetString("LinkHasBeenExistedException", resourceCulture);
+                return ResourceManager.GetString("LinkExistedException", resourceCulture);
             }
         }
         
@@ -197,29 +196,11 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The link&apos; name is invalid..
-        /// </summary>
-        public static string LinkNameIsInvalidException {
-            get {
-                return ResourceManager.GetString("LinkNameIsInvalidException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Link Name.
         /// </summary>
         public static string LinkNameLabel {
             get {
                 return ResourceManager.GetString("LinkNameLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You need select the Link Mode!.
-        /// </summary>
-        public static string NotSelectLinkModeException {
-            get {
-                return ResourceManager.GetString("NotSelectLinkModeException", resourceCulture);
             }
         }
         
@@ -278,11 +259,11 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Target hasn&apos;t existed yet..
+        ///   Looks up a localized string similar to The target doesn&apos;t exist..
         /// </summary>
-        public static string TargetHasNotExistedYet {
+        public static string TargetNotFoundException {
             get {
-                return ResourceManager.GetString("TargetHasNotExistedYet", resourceCulture);
+                return ResourceManager.GetString("TargetNotFoundException", resourceCulture);
             }
         }
         
@@ -296,20 +277,29 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The target should be a directory not a file..
+        /// </summary>
+        public static string TargetRequireDirectoryException {
+            get {
+                return ResourceManager.GetString("TargetRequireDirectoryException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The target should be a file not a directory..
+        /// </summary>
+        public static string TargetRequireFileException {
+            get {
+                return ResourceManager.GetString("TargetRequireFileException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tip.
         /// </summary>
         public static string Tip {
             get {
                 return ResourceManager.GetString("Tip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Do you want to continue?.
-        /// </summary>
-        public static string WhetherContinue {
-            get {
-                return ResourceManager.GetString("WhetherContinue", resourceCulture);
             }
         }
     }

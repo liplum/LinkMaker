@@ -37,33 +37,26 @@ public class LinkExistedException : Exception
 
 public class DriveLetterNotEqualException : Exception
 {
-    public DriveLetterNotEqualException()
+}
+
+public class TargetNotFoundException : Exception
+{
+    public TargetNotFoundException()
     {
     }
 
-    public DriveLetterNotEqualException(string message) : base(message)
+    public TargetNotFoundException(string message) : base(message)
     {
     }
 }
 
-public class HardLinkIsInapplicableException : Exception
+public enum FileSystemType
 {
-    public HardLinkIsInapplicableException()
-    {
-    }
-
-    public HardLinkIsInapplicableException(string message) : base(message)
-    {
-    }
+    File,
+    Directory
 }
 
-public class LinkModeNotSelectedException : Exception
+public class TargetFileSystemTypeException : Exception
 {
-    public LinkModeNotSelectedException()
-    {
-    }
-
-    public LinkModeNotSelectedException(string message) : base(message)
-    {
-    }
+    public FileSystemType Requirement { get; init; }
 }

@@ -60,7 +60,7 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 清除.
+        ///   Looks up a localized string similar to 清空.
         /// </summary>
         public static string Clear {
             get {
@@ -78,15 +78,6 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 链接和目标位置在不同的磁盘上。.
-        /// </summary>
-        public static string DifferentFromDriveLetterException {
-            get {
-                return ResourceManager.GetString("DifferentFromDriveLetterException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 目录符号链接.
         /// </summary>
         public static string DirectorySymbolicLinkRadioButton {
@@ -96,11 +87,11 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 你拖拽的内容不合法。.
+        ///   Looks up a localized string similar to 链接和目标位置在不同的磁盘上。.
         /// </summary>
-        public static string DraggedThingIsNotVaild {
+        public static string DriveLetterNotEqualException {
             get {
-                return ResourceManager.GetString("DraggedThingIsNotVaild", resourceCulture);
+                return ResourceManager.GetString("DriveLetterNotEqualException", resourceCulture);
             }
         }
         
@@ -117,9 +108,9 @@ namespace LinkMaker.Properties {
         ///   Looks up a localized string similar to 你链接的拓展名与目标位置的拓展名不同，
         ///要为其添加 {0} 在末尾吗？.
         /// </summary>
-        public static string ExtensionIsNotSame {
+        public static string ExtensionNotEqual {
             get {
-                return ResourceManager.GetString("ExtensionIsNotSame", resourceCulture);
+                return ResourceManager.GetString("ExtensionNotEqual", resourceCulture);
             }
         }
         
@@ -133,20 +124,38 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 硬链接模式需要目标位置是文件。.
-        /// </summary>
-        public static string HardLinkIsInapplicableException {
-            get {
-                return ResourceManager.GetString("HardLinkIsInapplicableException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 硬链接.
         /// </summary>
         public static string HardLinkRadioButton {
             get {
                 return ResourceManager.GetString("HardLinkRadioButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 你拖拽的内容不合法。.
+        /// </summary>
+        public static string InvalidDraggedItem {
+            get {
+                return ResourceManager.GetString("InvalidDraggedItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 链接所在目录的名称不合法。.
+        /// </summary>
+        public static string InvalidLinkDirectoryNameException {
+            get {
+                return ResourceManager.GetString("InvalidLinkDirectoryNameException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 链接名称不合法。.
+        /// </summary>
+        public static string InvalidLinkNameException {
+            get {
+                return ResourceManager.GetString("InvalidLinkNameException", resourceCulture);
             }
         }
         
@@ -169,21 +178,11 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 链接所在目录的名称不合法！
-        ///请修改后再试。.
+        ///   Looks up a localized string similar to 这个链接已经存在或已被占用了。.
         /// </summary>
-        public static string LinkDirectoryNameIsInvalidException {
+        public static string LinkExistedException {
             get {
-                return ResourceManager.GetString("LinkDirectoryNameIsInvalidException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 这个链接已经存在或已被占用了！.
-        /// </summary>
-        public static string LinkHasBeenExistedException {
-            get {
-                return ResourceManager.GetString("LinkHasBeenExistedException", resourceCulture);
+                return ResourceManager.GetString("LinkExistedException", resourceCulture);
             }
         }
         
@@ -197,29 +196,11 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 链接名称不合法。.
-        /// </summary>
-        public static string LinkNameIsInvalidException {
-            get {
-                return ResourceManager.GetString("LinkNameIsInvalidException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 链接名称.
         /// </summary>
         public static string LinkNameLabel {
             get {
                 return ResourceManager.GetString("LinkNameLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 你需要先选择链接模式！.
-        /// </summary>
-        public static string NotSelectLinkModeException {
-            get {
-                return ResourceManager.GetString("NotSelectLinkModeException", resourceCulture);
             }
         }
         
@@ -278,11 +259,11 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 目标位置尚未创建。.
+        ///   Looks up a localized string similar to 目标位置不存在。.
         /// </summary>
-        public static string TargetHasNotExistedYet {
+        public static string TargetNotFoundException {
             get {
-                return ResourceManager.GetString("TargetHasNotExistedYet", resourceCulture);
+                return ResourceManager.GetString("TargetNotFoundException", resourceCulture);
             }
         }
         
@@ -296,20 +277,29 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 目标位置应该为一个文件夹，而非文件。.
+        /// </summary>
+        public static string TargetRequireDirectoryException {
+            get {
+                return ResourceManager.GetString("TargetRequireDirectoryException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 目标位置应该为一个文件，而非文件夹。.
+        /// </summary>
+        public static string TargetRequireFileException {
+            get {
+                return ResourceManager.GetString("TargetRequireFileException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 提示.
         /// </summary>
         public static string Tip {
             get {
                 return ResourceManager.GetString("Tip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 是否继续？.
-        /// </summary>
-        public static string WhetherContinue {
-            get {
-                return ResourceManager.GetString("WhetherContinue", resourceCulture);
             }
         }
     }
