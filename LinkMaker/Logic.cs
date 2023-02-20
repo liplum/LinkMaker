@@ -32,7 +32,7 @@ public partial class MainWindow
     {
         if (string.IsNullOrEmpty(targetName)) return;
         TargetPathTextBox.Text = targetName;
-        AutoGenerateName();
+        LinkNameTextBox.Text = Path.GetFileName(targetName);
     }
 
     private void SelectTargetFolder()
@@ -47,16 +47,6 @@ public partial class MainWindow
     private void ClearLinkName()
     {
         LinkNameTextBox.Text = "";
-    }
-
-    private void AutoGenerateName()
-    {
-        var parts = TargetPathTextBox.Text.Split('\\');
-        var lastName = parts[^1];
-        if (!lastName.Equals(LinkNameTextBox.Text))
-        {
-            LinkNameTextBox.Text = lastName;
-        }
     }
 
     /// <summary>
@@ -79,7 +69,7 @@ public partial class MainWindow
             throw new InvalidLinkDirectoryNameException();
         }
 
-        var linkFullName = $@"{linkDirPath}\{linkName}";
+        var linkFullName = Path.Join(linkDirPath,linkName);
 
         if (File.Exists(linkFullName) || Directory.Exists(linkFullName))
         {
