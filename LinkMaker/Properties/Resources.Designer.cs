@@ -169,6 +169,15 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The link is created..
+        /// </summary>
+        public static string LinkCreatedTip {
+            get {
+                return ResourceManager.GetString("LinkCreatedTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Link Directory.
         /// </summary>
         public static string LinkDirectoryLabel {

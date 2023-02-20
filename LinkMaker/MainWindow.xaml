@@ -93,10 +93,9 @@
           <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBox
-          Name="LinkDirectoryName"
-          HorizontalAlignment="Stretch"
-          PreviewDragOver="LinkDirectoryName_PreviewDragOver"
-          PreviewDrop="LinkDirectoryName_PreviewDrop" />
+          Name="LinkDirectoryTextBox"
+          PreviewDragOver="LinkDirectory_PreviewDragOver"
+          PreviewDrop="LinkDirectory_PreviewDrop" />
         <Button
           Grid.Column="1"
           Name="SelectLinkDirectoryButton"
@@ -119,7 +118,7 @@
           <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBox
-          Name="LinkName" />
+          Name="LinkNameTextBox" />
         <Button
           Name="ClearTheLinkNameButton"
           Grid.Column="1"
@@ -142,7 +141,7 @@
           <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBox
-          Name="TargetPath"
+          Name="TargetPathTextBox"
           PreviewDragOver="TargetPath_PreviewDragOver"
           PreviewDrop="TargetPath_PreviewDrop" />
         <Button
@@ -157,6 +156,7 @@
       x:Name="CreateButton"
       MaxWidth="100"
       Click="Create_Click"
+      IsEnabled="False"
       Content="{x:Static prop:Resources.CreateButton}" />
   </StackPanel>
 </Window>

@@ -199,4 +199,7 @@ Do you want to add {0} to Link's name at the end?</value>
   <data name="TargetRequireDirectoryException" xml:space="preserve">
     <value>The target should be a directory not a file.</value>
   </data>
+  <data name="LinkCreatedTip" xml:space="preserve">
+    <value>The link is created.</value>
+  </data>
 </root>

@@ -169,6 +169,15 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 链接创建成功。.
+        /// </summary>
+        public static string LinkCreatedTip {
+            get {
+                return ResourceManager.GetString("LinkCreatedTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 链接的目录.
         /// </summary>
         public static string LinkDirectoryLabel {

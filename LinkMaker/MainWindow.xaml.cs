@@ -15,6 +15,18 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         CurrentMode = LinkMode.HardLink;
+        TargetPathTextBox.TextChanged += (_, _) => OnTextBoxChange();
+        LinkDirectoryTextBox.TextChanged  += (_, _) => OnTextBoxChange();
+        LinkNameTextBox.TextChanged  += (_, _) => OnTextBoxChange();
+    }
+
+    private void OnTextBoxChange()
+    {
+        CreateButton.IsEnabled =
+            TargetPathTextBox.Text.Length > 0 &&
+            LinkDirectoryTextBox.Text.Length > 0 &&
+            LinkNameTextBox.Text.Length > 0
+            ;
     }
 
     private LinkMode _currentMode;
@@ -64,9 +76,9 @@ public partial class MainWindow : Window
         {
             CreateLinkOf(
                 mode: CurrentMode,
-                linkName: LinkName.Text,
-                linkDirPath: LinkDirectoryName.Text,
-                targetPath: TargetPath.Text
+                linkName: LinkNameTextBox.Text,
+                linkDirPath: LinkDirectoryTextBox.Text,
+                targetPath: TargetPathTextBox.Text
             );
         }
         catch (LinkExistedException)
@@ -122,13 +134,13 @@ public partial class MainWindow : Window
         e.Handled = true;
     }
 
-    private void LinkDirectoryName_PreviewDragOver(object sender, DragEventArgs e)
+    private void LinkDirectory_PreviewDragOver(object sender, DragEventArgs e)
     {
         e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Link : DragDropEffects.None;
         e.Handled = true;
     }
 
-    private void LinkDirectoryName_PreviewDrop(object sender, DragEventArgs e)
+    private void LinkDirectory_PreviewDrop(object sender, DragEventArgs e)
     {
         var textBox = (TextBox)sender;
         if (e.Data.GetData(DataFormats.FileDrop) is Array array)
@@ -147,7 +159,7 @@ public partial class MainWindow : Window
     {
         SelectLinkDirectory();
     }
-    
+
     private void DirectorySymbolicLinkButton_Checked(object sender, RoutedEventArgs e)
     {
         CurrentMode = LinkMode.DirectorySymbolicLink;

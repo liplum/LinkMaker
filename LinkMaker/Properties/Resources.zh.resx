@@ -199,4 +199,7 @@
   <data name="TargetRequireFileException" xml:space="preserve">
     <value>目标位置应该为一个文件，而非文件夹。</value>
   </data>
+  <data name="LinkCreatedTip" xml:space="preserve">
+    <value>链接创建成功。</value>
+  </data>
 </root>

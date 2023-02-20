@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using MakeLinkLib;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using static MakeLinkLib.LinkHelper;
 
 namespace LinkMaker;
 
@@ -14,7 +15,7 @@ public partial class MainWindow
         var linkDir = SelectFolder(Properties.Resources.SelectLinkDirectoryCaption);
         if (linkDir is { Exists: true })
         {
-            LinkDirectoryName.Text = linkDir.FullName;
+            LinkDirectoryTextBox.Text = linkDir.FullName;
         }
     }
 
@@ -30,7 +31,7 @@ public partial class MainWindow
     private void SetTarget(string targetName)
     {
         if (string.IsNullOrEmpty(targetName)) return;
-        TargetPath.Text = targetName;
+        TargetPathTextBox.Text = targetName;
         AutoGenerateName();
     }
 
@@ -45,16 +46,16 @@ public partial class MainWindow
 
     private void ClearLinkName()
     {
-        LinkName.Text = "";
+        LinkNameTextBox.Text = "";
     }
-    
+
     private void AutoGenerateName()
     {
-        var parts = TargetPath.Text.Split('\\');
+        var parts = TargetPathTextBox.Text.Split('\\');
         var lastName = parts[^1];
-        if (!lastName.Equals(LinkName.Text))
+        if (!lastName.Equals(LinkNameTextBox.Text))
         {
-            LinkName.Text = lastName;
+            LinkNameTextBox.Text = lastName;
         }
     }
 
@@ -133,16 +134,15 @@ public partial class MainWindow
         if (res == MessageBoxResult.OK)
         {
             linkFullPath = @$"{linkFullPath}\{targetFileExtension}";
-            LinkName.Text = linkFullPath;
+            LinkNameTextBox.Text = linkFullPath;
         }
 
-
-        new MkLink
-        {
-            Mode = LinkMode.HardLink,
-            Link = linkFullPath,
-            Target = targetPath
-        }.Run();
+        MakeLink(
+            mode: LinkMode.HardLink,
+            linkPath: linkFullPath,
+            targetPath: targetPath
+        );
+        OnLinkCreated();
     }
 
     /// <param name="linkFullPath">Its parent directory exists, and itself doesn't exist.</param>
@@ -157,12 +157,12 @@ public partial class MainWindow
             };
         }
 
-        new MkLink
-        {
-            Mode = LinkMode.DirectorySymbolicLink,
-            Link = linkFullPath,
-            Target = targetPath
-        }.Run();
+        MakeLink(
+            mode: LinkMode.FileSymbolicLink,
+            linkPath: linkFullPath,
+            targetPath: targetPath
+        );
+        OnLinkCreated();
     }
 
     /// <param name="linkFullPath">Its parent directory exists, and itself doesn't exist.</param>
@@ -182,12 +182,12 @@ public partial class MainWindow
             Directory.CreateDirectory(targetPath);
         }
 
-        new MkLink
-        {
-            Mode = LinkMode.FileSymbolicLink,
-            Link = linkFullPath,
-            Target = targetPath
-        }.Run();
+        MakeLink(
+            mode: LinkMode.DirectorySymbolicLink,
+            linkPath: linkFullPath,
+            targetPath: targetPath
+        );
+        OnLinkCreated();
     }
 
     /// <param name="linkFullPath">Its parent directory exists, and itself doesn't exist.</param>
@@ -207,12 +207,21 @@ public partial class MainWindow
             Directory.CreateDirectory(targetPath);
         }
 
-        new MkLink
-        {
-            Mode = LinkMode.JunctionLink,
-            Link = linkFullPath,
-            Target = targetPath
-        }.Run();
+        MakeLink(
+            mode: LinkMode.JunctionLink,
+            linkPath: linkFullPath,
+            targetPath: targetPath
+        );
+        
+        OnLinkCreated();
+    }
+
+    private void OnLinkCreated()
+    {
+        TargetPathTextBox.Text = "";
+        LinkDirectoryTextBox.Text = "";
+        LinkNameTextBox.Text = "";
+        MessageBox.Show(Properties.Resources.LinkCreatedTip);
     }
 
     [GeneratedRegex("^[\\/:*?\"<>|]$")]
