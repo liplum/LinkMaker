@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using MahApps.Metro.Controls;
 using MakeLinkLib;
 
 namespace LinkMaker;
@@ -9,7 +11,7 @@ namespace LinkMaker;
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow : Window
+public partial class MainWindow : MetroWindow
 {
     public MainWindow()
     {
@@ -200,5 +202,14 @@ public partial class MainWindow : Window
             default:
                 throw new ArgumentOutOfRangeException(nameof(CurrentMode), CurrentMode, null);
         }
+    }
+
+    private void LaunchGitHubSite(object sender, RoutedEventArgs e)
+    {
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = "https://github.com/liplum/LinkMaker",
+            UseShellExecute = true
+        });
     }
 }
