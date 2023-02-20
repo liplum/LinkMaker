@@ -136,8 +136,8 @@
     <value>错误</value>
   </data>
   <data name="ExtensionNotEqual" xml:space="preserve">
-    <value>你链接的拓展名与目标位置的拓展名不同，
-要为其添加 {0} 在末尾吗？</value>
+    <value>链接的拓展名与目标位置的拓展名不同，
+要改为{0} 吗？</value>
   </data>
   <data name="FileSymbolicLinkRadioButton" xml:space="preserve">
     <value>文件符号链接</value>

@@ -105,8 +105,8 @@ namespace LinkMaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 你链接的拓展名与目标位置的拓展名不同，
-        ///要为其添加 {0} 在末尾吗？.
+        ///   Looks up a localized string similar to 链接的拓展名与目标位置的拓展名不同，
+        ///要改为{0} 吗？.
         /// </summary>
         public static string ExtensionNotEqual {
             get {

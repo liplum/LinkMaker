@@ -137,7 +137,7 @@
   </data>
   <data name="ExtensionNotEqual" xml:space="preserve">
     <value>The link's extension is different from the target.
-Do you want to add {0} to Link's name at the end?</value>
+Do you want to change it to "{0}"?</value>
   </data>
   <data name="FileSymbolicLinkRadioButton" xml:space="preserve">
     <value>File SymLink</value>

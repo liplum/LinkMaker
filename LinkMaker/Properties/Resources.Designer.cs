@@ -106,7 +106,7 @@ namespace LinkMaker.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to The link&apos;s extension is different from the target.
-        ///Do you want to add {0} to Link&apos;s name at the end?.
+        ///Do you want to change it to &quot;{0}&quot;?.
         /// </summary>
         public static string ExtensionNotEqual {
             get {
