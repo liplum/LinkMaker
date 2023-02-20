@@ -99,7 +99,7 @@
           PreviewDrop="LinkDirectoryName_PreviewDrop" />
         <Button
           Grid.Column="1"
-          Name="SelectLinkDirectory"
+          Name="SelectLinkDirectoryButton"
           Click="SelectLinkDirectory_Click"
           Content="{x:Static prop:Resources.SelectFolderButton}" />
       </Grid>
@@ -121,8 +121,8 @@
         <TextBox
           Name="LinkName" />
         <Button
+          Name="ClearTheLinkNameButton"
           Grid.Column="1"
-          Name="ClearTheLinkName"
           Click="ClearTheLinkName_Click"
           Content="{x:Static prop:Resources.Clear}" />
       </Grid>
@@ -144,18 +144,17 @@
         <TextBox
           Name="TargetPath"
           PreviewDragOver="TargetPath_PreviewDragOver"
-          PreviewDrop="TargetPath_PreviewDrop"
-          />
+          PreviewDrop="TargetPath_PreviewDrop" />
         <Button
-          Name="SelectTargetPath"
+          Name="SelectTargetPathButton"
           Grid.Column="1"
-          Content="{x:Static prop:Resources.SelectTargetPathButton}"
-          IsEnabled="False" />
+          Click="SelectTargetPath_OnClick"
+          Content="{x:Static prop:Resources.SelectTargetPathButton}" />
       </Grid>
     </Grid>
 
     <Button
-      x:Name="Create"
+      x:Name="CreateButton"
       MaxWidth="100"
       Click="Create_Click"
       Content="{x:Static prop:Resources.CreateButton}" />

@@ -9,7 +9,7 @@ namespace LinkMaker;
 
 public partial class MainWindow
 {
-    private void SelectLinkDirectoryFuc()
+    private void SelectLinkDirectory()
     {
         var linkDir = SelectFolder(Properties.Resources.SelectLinkDirectoryCaption);
         if (linkDir is { Exists: true })
@@ -18,7 +18,7 @@ public partial class MainWindow
         }
     }
 
-    private void SelectTargetFileFuc()
+    private void SelectTargetFile()
     {
         var target = SelectFile(Properties.Resources.SelectTargetFileCaption);
         if (target != null)
@@ -34,7 +34,7 @@ public partial class MainWindow
         AutoGenerateName();
     }
 
-    private void SelectTargetFolderFuc()
+    private void SelectTargetFolder()
     {
         var targetDir = SelectFolder(Properties.Resources.SelectTargetFolderCaption);
         if (targetDir != null)
@@ -47,25 +47,7 @@ public partial class MainWindow
     {
         LinkName.Text = "";
     }
-
-    private void CanSelectFile()
-    {
-        SelectTargetPath.IsEnabled = true;
-        SelectTargetPath.Click -= SelectTargetPath_Click_File;
-        SelectTargetPath.Click -= SelectTargetPath_Click_Folder;
-        SelectTargetPath.Click += SelectTargetPath_Click_File;
-        SelectTargetPath.Content = Properties.Resources.SelectFileButton;
-    }
-
-    private void CanSelectDirectory()
-    {
-        SelectTargetPath.IsEnabled = true;
-        SelectTargetPath.Click -= SelectTargetPath_Click_Folder;
-        SelectTargetPath.Click -= SelectTargetPath_Click_File;
-        SelectTargetPath.Click += SelectTargetPath_Click_Folder;
-        SelectTargetPath.Content = Properties.Resources.SelectFolderButton;
-    }
-
+    
     private void AutoGenerateName()
     {
         var parts = TargetPath.Text.Split('\\');

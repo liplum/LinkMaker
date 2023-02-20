@@ -28,16 +28,20 @@ public partial class MainWindow : Window
             switch (value)
             {
                 case LinkMode.DirectorySymbolicLink:
-                    OnlyCheck(DirectorySymbolicLinkButton);
-                    break;
-                case LinkMode.FileSymbolicLink:
-                    OnlyCheck(FileSymbolicLinkButton);
-                    break;
-                case LinkMode.HardLink:
-                    OnlyCheck(HardLinkButton);
+                    CheckOnly(DirectorySymbolicLinkButton);
+                    SelectTargetPathButton.Content = Properties.Resources.SelectFolderButton;
                     break;
                 case LinkMode.JunctionLink:
-                    OnlyCheck(JunctionLinkButton);
+                    CheckOnly(JunctionLinkButton);
+                    SelectTargetPathButton.Content = Properties.Resources.SelectFolderButton;
+                    break;
+                case LinkMode.FileSymbolicLink:
+                    CheckOnly(FileSymbolicLinkButton);
+                    SelectTargetPathButton.Content = Properties.Resources.SelectFileButton;
+                    break;
+                case LinkMode.HardLink:
+                    CheckOnly(HardLinkButton);
+                    SelectTargetPathButton.Content = Properties.Resources.SelectFileButton;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(value), value, null);
@@ -45,28 +49,13 @@ public partial class MainWindow : Window
         }
     }
 
-    private void OnlyCheck(ToggleButton checkedOne)
+    private void CheckOnly(ToggleButton checkedOne)
     {
         var buttons = new[] { HardLinkButton, DirectorySymbolicLinkButton, FileSymbolicLinkButton, JunctionLinkButton };
         foreach (var button in buttons)
         {
             button.IsChecked = button == checkedOne;
         }
-    }
-
-    private void SelectLinkDirectory_Click(object sender, RoutedEventArgs e)
-    {
-        SelectLinkDirectoryFuc();
-    }
-
-    private void SelectTargetPath_Click_File(object sender, RoutedEventArgs e)
-    {
-        SelectTargetFileFuc();
-    }
-
-    private void SelectTargetPath_Click_Folder(object sender, RoutedEventArgs e)
-    {
-        SelectTargetFolderFuc();
     }
 
     private void Create_Click(object sender, RoutedEventArgs e)
@@ -136,6 +125,7 @@ public partial class MainWindow : Window
     private void LinkDirectoryName_PreviewDragOver(object sender, DragEventArgs e)
     {
         e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Link : DragDropEffects.None;
+        e.Handled = true;
     }
 
     private void LinkDirectoryName_PreviewDrop(object sender, DragEventArgs e)
@@ -153,32 +143,50 @@ public partial class MainWindow : Window
         e.Handled = true;
     }
 
+    private void SelectLinkDirectory_Click(object sender, RoutedEventArgs e)
+    {
+        SelectLinkDirectory();
+    }
+    
     private void DirectorySymbolicLinkButton_Checked(object sender, RoutedEventArgs e)
     {
         CurrentMode = LinkMode.DirectorySymbolicLink;
-        CanSelectDirectory();
     }
 
     private void FileSymbolicLinkButton_Checked(object sender, RoutedEventArgs e)
     {
         CurrentMode = LinkMode.FileSymbolicLink;
-        CanSelectFile();
     }
 
     private void JunctionLinkButton_Checked(object sender, RoutedEventArgs e)
     {
         CurrentMode = LinkMode.JunctionLink;
-        CanSelectDirectory();
     }
 
     private void HardLinkButton_Checked(object sender, RoutedEventArgs e)
     {
         CurrentMode = LinkMode.HardLink;
-        CanSelectFile();
     }
 
     private void ClearTheLinkName_Click(object sender, RoutedEventArgs e)
     {
         ClearLinkName();
+    }
+
+    private void SelectTargetPath_OnClick(object sender, RoutedEventArgs e)
+    {
+        switch (CurrentMode)
+        {
+            case LinkMode.DirectorySymbolicLink:
+            case LinkMode.JunctionLink:
+                SelectTargetFolder();
+                break;
+            case LinkMode.FileSymbolicLink:
+            case LinkMode.HardLink:
+                SelectTargetFile();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(CurrentMode), CurrentMode, null);
+        }
     }
 }
