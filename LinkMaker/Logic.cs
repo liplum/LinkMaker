@@ -137,7 +137,7 @@ public partial class MainWindow
                 LinkNameTextBox.Text = linkFullPath;
             }
         }
-     
+
         MakeLink(
             mode: LinkMode.HardLink,
             linkPath: linkFullPath,
