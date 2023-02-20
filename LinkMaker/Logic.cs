@@ -86,7 +86,7 @@ public partial class MainWindow
             throw new LinkExistedException();
         }
 
-        if (!File.Exists(linkFullName) && !Directory.Exists(linkFullName))
+        if (!File.Exists(targetPath) && !Directory.Exists(targetPath))
         {
             throw new TargetNotFoundException();
         }
@@ -126,17 +126,18 @@ public partial class MainWindow
             throw new DriveLetterNotEqualException();
 
         var targetFileExtension = Path.GetExtension(targetPath);
-        if (targetFileExtension == Path.GetExtension(linkFullPath)) return;
-
-        var res = MessageBox.Show(
-            string.Format(Properties.Resources.ExtensionNotEqual, targetFileExtension),
-            Properties.Resources.Tip, MessageBoxButton.OKCancel);
-        if (res == MessageBoxResult.OK)
+        if (targetFileExtension != Path.GetExtension(linkFullPath))
         {
-            linkFullPath = @$"{linkFullPath}\{targetFileExtension}";
-            LinkNameTextBox.Text = linkFullPath;
+            var res = MessageBox.Show(
+                string.Format(Properties.Resources.ExtensionNotEqual, targetFileExtension),
+                Properties.Resources.Tip, MessageBoxButton.OKCancel);
+            if (res == MessageBoxResult.OK)
+            {
+                targetPath = Path.GetFileNameWithoutExtension(targetPath) + targetFileExtension;
+                LinkNameTextBox.Text = linkFullPath;
+            }
         }
-
+     
         MakeLink(
             mode: LinkMode.HardLink,
             linkPath: linkFullPath,
@@ -212,7 +213,7 @@ public partial class MainWindow
             linkPath: linkFullPath,
             targetPath: targetPath
         );
-        
+
         OnLinkCreated();
     }
 
